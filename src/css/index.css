@@ -76,11 +76,13 @@ h2 {
 }
 
 .header h1 {
-  display: inline-block;
+  display: table-cell;
 }
 
-.header h1 {
-  display: table-cell;
+.header h1 a {
+  font-family: "notoSansBold";
+  font-size: 1.04167rem;
+  color: #42424A;
 }
 
 .header .menus {
@@ -224,7 +226,7 @@ ul.nav_second li a {
   color: #42424A;
 }
 
-.wrapper_tool h3 {
+h3 {
   font-family: "notoSansMedium";
   font-size: 0.83333rem;
   margin-bottom: 0.52083rem;

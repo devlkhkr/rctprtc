@@ -73,10 +73,12 @@ h2{
     background: $color3;
     padding: 0 px(30);
     h1{
-        display: inline-block;
-    }
-    h1{
         display: table-cell;
+        a{
+            font-family: $notoB;
+            font-size: px(20);
+            color: $color1;
+        }
     }
     .menus{
         display: table-cell;
@@ -219,12 +221,14 @@ ul.nav_second{
     color: $color1;
 }
 
+h3{
+    font-family: $notoM;
+    font-size: px(16);
+    margin-bottom: px(10);
+}
+
 .wrapper_tool{
-    h3{
-        font-family: $notoM;
-        font-size: px(16);
-        margin-bottom: px(10);
-    }
+
 }
 
 .wrapper_counter{

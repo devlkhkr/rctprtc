@@ -5,7 +5,7 @@ const Menu = ({name}) => {
     return (
         <div>
             <div className="header">
-                <h1><NavLink exact to="/" activeClassName="on">Home</NavLink></h1>
+                <h1><NavLink exact to="/" activeClassName="on">TestWeb</NavLink></h1>
                 <div className="menus">
                     <input type="checkbox" id="navTrigger"></input>
                     <label htmlFor="navTrigger">
@@ -16,6 +16,7 @@ const Menu = ({name}) => {
                         <li><NavLink exact to="/about" activeClassName="on">About</NavLink></li>
                         <li><NavLink to="/posts" activeClassName="on">Post</NavLink></li>
                         <li><NavLink to="/tools" activeClassName="on">Tools</NavLink></li>
+                        <li><NavLink to="/sql" activeClassName="on">SQLTest</NavLink></li>
                     </ul>
                 </div>
             </div>

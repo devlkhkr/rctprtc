@@ -1,0 +1,260 @@
+@charset "UTF-8";
+@import url("reset.css");
+/* s : 아이콘 공통 */
+/* s : 폰트 선언 */
+@font-face {
+  font-family: 'notoSansLight';
+  font-style: normal;
+  src: url("css/font/NotoSansKR-Light.woff") format("woff"), url("css/font/NotoSansKR-Light.eot");
+}
+
+@font-face {
+  font-family: 'notoSansRegular';
+  font-style: normal;
+  src: url("css/font/NotoSansKR-Regular.woff") format("woff"), url("css/font/NotoSansKR-Regular.eot");
+}
+
+@font-face {
+  font-family: 'notoSansMedium';
+  font-style: normal;
+  src: url("css/font/NotoSansKR-Medium.woff") format("woff"), url("css/font/NotoSansKR-Medium.eot");
+}
+
+@font-face {
+  font-family: 'notoSansBold';
+  font-style: normal;
+  src: url("css/font/NotoSansKR-Bold.woff") format("woff"), url("css/font/NotoSansKR-Bold.eot");
+}
+
+/* e : 폰트 선언 */
+html {
+  font-size: 1vw;
+  width: 100%;
+  height: 100%;
+  font-family: "notoSansRegular";
+}
+
+html body {
+  width: 100%;
+  height: 100%;
+}
+
+html #root {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  padding-top: 2.60417rem;
+}
+
+h2 {
+  display: inlin-block;
+  width: 100%;
+  height: 2.08333rem;
+  line-height: 2.08333rem;
+  padding: 0 3.125rem;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve"><g><path d="M256,0C161.896,0,85.333,76.563,85.333,170.667c0,28.25,7.063,56.26,20.49,81.104L246.667,506.5    c1.875,3.396,5.448,5.5,9.333,5.5s7.458-2.104,9.333-5.5l140.896-254.813c13.375-24.76,20.438-52.771,20.438-81.021    C426.667,76.563,350.104,0,256,0z M256,256c-47.052,0-85.333-38.281-85.333-85.333c0-47.052,38.281-85.333,85.333-85.333    s85.333,38.281,85.333,85.333C341.333,217.719,303.052,256,256,256z" fill="%23DE5867"/></g></svg>');
+  background-repeat: no-repeat;
+  background-size: 1.04167rem;
+  background-position: center left 1.5625rem;
+  background-color: #8B8F9C;
+  color: #fff;
+  font-family: "notoSansMedium";
+  font-size: 0.72917rem;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  display: table;
+  width: 100%;
+  height: 2.60417rem;
+  line-height: 2.60417rem;
+  background: #C9CACD;
+  padding: 0 1.5625rem;
+}
+
+.header h1 {
+  display: inline-block;
+}
+
+.header h1 {
+  display: table-cell;
+}
+
+.header .menus {
+  display: table-cell;
+  text-align: right;
+}
+
+.header .menus input {
+  display: none;
+}
+
+.header .menus input:checked ~ label i:nth-child(1) {
+  top: 0.46875rem;
+  width: 0%;
+  left: 50%;
+}
+
+.header .menus input:checked ~ label i:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.header .menus input:checked ~ label i:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+
+.header .menus input:checked ~ label i:nth-child(4) {
+  top: 0.46875rem;
+  width: 0%;
+  left: 50%;
+}
+
+.header .menus input:checked ~ .nav {
+  right: 0;
+}
+
+.header .menus label {
+  display: inline-block;
+  width: 1.5625rem;
+  height: 1.17188rem;
+  position: relative;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  vertical-align: sub;
+}
+
+.header .menus label i {
+  display: block;
+  position: absolute;
+  height: 0.20833rem;
+  width: 100%;
+  background: #42424A;
+  border-radius: 0.20833rem;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+}
+
+.header .menus label i:nth-child(1) {
+  top: 0;
+}
+
+.header .menus label i:nth-child(2), .header .menus label i:nth-child(3) {
+  top: 0.46875rem;
+}
+
+.header .menus label i:nth-child(4) {
+  top: 0.9375rem;
+}
+
+ul.nav {
+  position: fixed;
+  right: calc(-1 * (200rem / 19.20));
+  bottom: 0;
+  width: 10.41667rem;
+  height: calc(100% - (50rem / 19.20));
+  padding: 1.5625rem 0;
+  background: #42424A;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+  line-height: 0;
+}
+
+ul.nav li {
+  width: 100%;
+}
+
+ul.nav li a {
+  display: inline-block;
+  width: 100%;
+  padding: 1.5625rem;
+  color: #C9CACD;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+  font-family: "notoSansBold";
+  font-size: 0.83333rem;
+}
+
+ul.nav li a:hover {
+  color: #DE5867;
+}
+
+ul.nav li a.on {
+  color: #DE5867;
+}
+
+ul.nav_second {
+  width: 100%;
+  height: 2.08333rem;
+  line-height: 2.08333rem;
+  font-size: 0.72917rem;
+  font-family: "notoSansMedium";
+  border-bottom: 0.05208rem solid #C9CACD;
+}
+
+ul.nav_second li {
+  display: inline-block;
+  margin-right: 1.5625rem;
+}
+
+ul.nav_second li a {
+  width: 5.20833rem;
+  border: 0.05208rem solid #C9CACD;
+  padding: 0.26042rem 0.52083rem;
+  color: #42424A;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+}
+
+.wrapper_contents {
+  padding: 1.5625rem;
+  font-family: "notoSansRegular";
+  font-size: 0.72917rem;
+  color: #42424A;
+}
+
+.wrapper_tool h3 {
+  font-family: "notoSansMedium";
+  font-size: 0.83333rem;
+  margin-bottom: 0.52083rem;
+}
+
+.wrapper_counter span {
+  height: 1.5625rem;
+  line-height: 1.5625rem;
+  padding: 0 1.04167rem;
+}
+
+.wrapper_counter button {
+  width: 1.5625rem;
+  height: 1.5625rem;
+  background: #42424A;
+  border: 0;
+  color: #fff;
+  border-radius: 0.15625rem;
+  cursor: pointer;
+  -webkit-transition-duration: .3s;
+          transition-duration: .3s;
+}
+
+.wrapper_counter button:hover {
+  background: #3F7CA5;
+}
+
+@media all and (max-width: 700px) {
+  html {
+    font-size: 4vw;
+  }
+}
+/*# sourceMappingURL=index.css.map */

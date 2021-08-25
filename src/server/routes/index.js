@@ -14,7 +14,7 @@ router.get('/', (req,res) => {
 })
 
 router.get('/chats', (req,res) => {
-    connection.query("select * from chats", function(err, rows) {
+    connection.query("select * from test", function(err, rows) {
         res.send(rows)
     })
 })

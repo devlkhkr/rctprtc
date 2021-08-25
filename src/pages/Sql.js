@@ -5,15 +5,12 @@ class Sql extends Component {
     constructor(props)
     {
         super(props);
-        this.getData = this.getData.bind(this)
+        this.getData = this.getData.bind(this);
         this.state = {
-            chats: "before",
+            test: "before",
         };
     }
-    state = {
-        test: "Test"
-    }
-    getData = () => {
+    getData = async() => {
         const axiosSet = axios.create({
             baseURL: "http://localhost:3001/",
             Headers:{
@@ -22,22 +19,29 @@ class Sql extends Component {
             responseType: 'json',
             responeseEncoding: 'json'
         })
-        const res=axiosSet.get('/chats')
-        res.then(function(res){
-            console.log(res.data)
-        })
+        const res = await axiosSet.get('/chats')
+
+        for(var i=0;i<res.data.length;i++){
+            console.log([res.data[i]._id, res.data[i].name, res.data[i].phone]) 
+
+            const props = {className: "test", onClick: () => {}};
+            const child = <span>{res.data[i]}</span>
+            React.createElement('div', props, child)
+
+        }
         this.setState({
-            chats: "after"
+            test: "after"
         })
-    }    
+    }
+
     render(){
         return (
             <div>
                 <div className="wrapper_tool">
-                    <h3>MySQL Test</h3>
+                    <h3>SQL Test</h3>
                     <button onClick={ this.getData }>GetData</button>
                 </div>
-                <div>{this.state.chats}</div>
+                <div>{this.state.test}</div>
             </div>
         );
     }

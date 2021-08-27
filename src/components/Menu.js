@@ -17,6 +17,7 @@ const Menu = ({name}) => {
                         <li><NavLink to="/posts" activeClassName="on">Post</NavLink></li>
                         <li><NavLink to="/tools" activeClassName="on">Tools</NavLink></li>
                         <li><NavLink to="/sql" activeClassName="on">SQLTest</NavLink></li>
+                        <li><NavLink to="/bind" activeClassName="on">BindTest</NavLink></li>
                     </ul>
                 </div>
             </div>

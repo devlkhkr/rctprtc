@@ -7,16 +7,16 @@ class Shape{
         this.height = height;
         this.getShapeArea = this.getShapeArea.bind(this)
     }
-    getShapeArea(width, height){
-        return width * height;
+    getShapeArea(){
+        return this.width * this.height;
     }
 }
 class Rectangle extends Shape{
         
 }
 class Triangle extends Shape{
-    getShapeArea(width, height){
-        return (width * height) / 2;
+    getShapeArea(){
+        return this.width * this.height / 2;
     }
 }
 
@@ -35,6 +35,7 @@ class ClassTest extends Component{
         console.log(shape_1)
         console.log(shape_1.getShapeArea())
         console.log(shape_2)
+        console.log(shape_2.getShapeArea())
         return (
             <div>
                 <div className="wrapper_tool">

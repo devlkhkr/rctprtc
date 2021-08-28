@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Home, About, Posts, Tools, Sql, Bind } from 'pages';
+import { Home, About, Posts, Tools, Sql, Bind, Class } from 'pages';
 import Menu from 'components/Menu';
 
 class App extends Component {
@@ -24,6 +24,7 @@ class App extends Component {
                     <Route path="/tools" component={Tools}/>
                     <Route path="/sql" component={Sql}/>
                     <Route path="/bind" component={Bind}/>
+                    <Route path="/Class" component={Class}/>
                 </div>
             </div>
         );

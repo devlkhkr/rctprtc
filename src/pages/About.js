@@ -8,6 +8,7 @@ const About = ({location, match}) => {
     return (
         <div>
             <div>About {match.params.name}</div>
+            <div>Web for Kany practice ES6 & React</div>
             {detail && 'detail: blahblah'}
         </div>
     );

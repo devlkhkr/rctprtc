@@ -24,6 +24,7 @@ class BindTest extends Component{
                     <button onClick={this.test}>test</button>
                     <div>{this.state.bindTest}</div>
                     <div>{this.state.add}</div>
+                    <div>mac home</div>
                 </div>
             </div>
         );

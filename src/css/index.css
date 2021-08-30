@@ -254,6 +254,14 @@ h3 {
   background: #3F7CA5;
 }
 
+#shapeArea {
+  margin: 0.52083rem 0;
+}
+
+#shapeArea span {
+  display: inline-block;
+}
+
 @media all and (max-width: 700px) {
   html {
     font-size: 4vw;

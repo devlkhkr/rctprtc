@@ -72,6 +72,21 @@ class ClassTest extends Component{
     ), document.getElementById('shapeArea'))
     
     makeAShape(shapeInfo){
+        if(this.state.width == null){
+            alert("Width를 입력하세요");
+            document.getElementById("input_set_width").focus();
+            return;
+        }
+        if(this.state.height == null){
+            alert("Height를 입력하세요");
+            document.getElementById("input_set_height").focus();
+            return;
+        }
+        if(this.state.color == null){
+            alert("Color를 입력하세요");
+            document.getElementById("input_set_color").focus();
+            return;
+        }
         function shapeStyle(){
             var styleValue = {}
             if(shapeInfo.type === "rectangle" || shapeInfo.type === "circle"){
@@ -107,18 +122,22 @@ class ClassTest extends Component{
                     <h3>Class & Object</h3>
                 </div>
                 <div>
-                    <input type="number" placeholder="width" onChange={this.widthChange}></input>
-                    <input type="number" placeholder="height" onChange={this.heightChange}></input>
-                    <input type="text" placeholder="color" onChange={this.colorChange}></input>
+                    <label>Width : </label><input type="number" id="input_set_width" placeholder="width" onChange={this.widthChange}></input>
+                    <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange}></input>
+                    <label>Color : </label><input type="text" id="input_set_color" placeholder="color" onChange={this.colorChange}></input>
                 </div>
-                <button onClick={this.makeARectangle}>Make a rectangle</button>
-                <button onClick={this.makeATriangle}>Make a triangle</button>
-                <button onClick={this.makeACircle}>Make a circle</button>
+                <div>
+                    <button onClick={this.makeARectangle}>Make a rectangle</button>
+                    <button onClick={this.makeATriangle}>Make a triangle</button>
+                    <button onClick={this.makeACircle}>Make a circle</button>
+                </div>
                 <div id="shapeArea"></div>
-                <div>가로 : {this.state.width}</div>
-                <div>세로 : {this.state.height}</div>
-                <div>색상 : {this.state.color}</div>
-                <div>넓이 : {this.state.area}</div>
+                <div>
+                    <div>가로 : {this.state.width}</div>
+                    <div>세로 : {this.state.height}</div>
+                    <div>색상 : {this.state.color}</div>
+                    <div>넓이 : {this.state.area}</div>
+                </div>
             </div>
         );
     }

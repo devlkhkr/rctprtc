@@ -63,6 +63,17 @@ h2 {
   font-size: 0.72917rem;
 }
 
+button {
+  padding: 0.36458rem 0.72917rem;
+  border: 0;
+  font-size: 0.72917rem;
+}
+
+button.btn_color_01 {
+  background: #77b8dd;
+  color: #fff;
+}
+
 .header {
   position: fixed;
   left: 0;
@@ -171,6 +182,7 @@ ul.nav {
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
   line-height: 0;
+  z-index: 999;
 }
 
 ul.nav li {
@@ -254,6 +266,70 @@ h3 {
   background: #3F7CA5;
 }
 
+.shapeStore, #shapeArea {
+  display: inline-block;
+  height: 31.25rem;
+  vertical-align: middle;
+}
+
+#shapeArea {
+  position: relative;
+  width: calc(100% - calc(500rem / 19.20));
+  border: 0.05208rem solid #bbb;
+}
+
+#shapeArea * {
+  position: absolute;
+  cursor: pointer;
+}
+
+.shapeStore {
+  width: 26.04167rem;
+  padding-right: 1.5625rem;
+}
+
+.shapeStore .shapeSet + .shapeSet {
+  margin-top: 0.52083rem;
+}
+
+.shapeStore .shapeSet label {
+  display: inline-block;
+  width: 5.20833rem;
+}
+
+.shapeStore .shapeSet input {
+  width: calc(100% - (100rem / 19.20));
+  height: 1.66667rem;
+  padding: 0 0.52083rem;
+  border: 0.05208rem solid #bbb;
+  font-size: 0.72917rem;
+}
+
+.shapeStore .shapeCreateBtns {
+  margin-top: 0.52083rem;
+}
+
+.shapeStore .shapeCreateBtns button {
+  width: calc(100% / 3 - (8rem / 19.20));
+  font-size: 0.625rem;
+}
+
+.shapeStore .shapeCreateBtns button + button {
+  margin-left: 0.625rem;
+}
+
+.shapeStore ul.shapeInfo {
+  margin-top: 0.52083rem;
+}
+
+.shapeStore ul.shapeInfo li {
+  line-height: 1.2;
+}
+
+.shapeStore ul.shapeInfo li + li {
+  margin-top: 0.52083rem;
+}
+
 #shapeArea {
   margin: 0.52083rem 0;
 }
@@ -262,9 +338,19 @@ h3 {
   display: inline-block;
 }
 
+#shapeArea #tooltip {
+  padding: 0.52083rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+}
+
 @media all and (max-width: 700px) {
   html {
     font-size: 4vw;
+  }
+  .shapeStore, #shapeArea {
+    width: 100%;
+    padding: 0;
   }
 }
 /*# sourceMappingURL=index.css.map */

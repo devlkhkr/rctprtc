@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import reactDom from 'react-dom';
 import ReactDOM from "react-dom";
 
 class Shape{
@@ -35,12 +36,36 @@ class ClassTest extends Component{
         this.makeARectangle = this.makeARectangle.bind(this)
         this.makeATriangle = this.makeATriangle.bind(this)
         this.makeACircle = this.makeACircle.bind(this)
+        this.tooltipOn = this.tooltipOn.bind(this)
         this.state = {
             width: null,
             height: null,
             color: null,
             area: null,
+            shapes: [],
+            tooltip: {
+                opacity: 1,
+                left: 0,
+                top: 0,
+                shapeWidth: null,
+                shapeHeight: null,
+                shapeColor: null,
+            }
         };
+    }
+    tooltipOn = (e) => {
+        this.setState({
+            tooltip: {
+                opacity: 1,
+                shapeWidth: e.target.getAttribute("width"),
+                shapeHeight: e.target.getAttribute("height"),
+                shapeColor: e.target.getAttribute("color"), 
+            }
+        })
+    }
+
+    tooltipOff = (e) => {
+    
     }
 
     widthChange = (e) => {
@@ -59,17 +84,18 @@ class ClassTest extends Component{
         })
     }
 
-    makeARectangle = () => ReactDOM.render(this.makeAShape(
-        new Rectangle("rectangle", this.state.width, this.state.height, this.state.color)
-    ), document.getElementById('shapeArea'))
-
-    makeATriangle = () => ReactDOM.render(this.makeAShape(
-        new Triangle("triangle", this.state.width, this.state.height, this.state.color)
-    ), document.getElementById('shapeArea'))
-
-    makeACircle = () => ReactDOM.render(this.makeAShape(
-        new Circle("circle", this.state.width, this.state.height, this.state.color)
-    ), document.getElementById('shapeArea'))
+    makeARectangle = () => {
+        this.state.shapes.push(this.makeAShape(new Rectangle("rectangle", this.state.width, this.state.height, this.state.color)));
+        reactDom.render(this.state.shapes,document.getElementById("shapeArea"))
+    }
+    makeATriangle = () => {
+        this.state.shapes.push(this.makeAShape(new Triangle("triangle", this.state.width, this.state.height, this.state.color)));
+        reactDom.render(this.state.shapes,document.getElementById("shapeArea"))
+    }
+    makeACircle = () => {
+        this.state.shapes.push(this.makeAShape(new Circle("circle", this.state.width, this.state.height, this.state.color)));
+        reactDom.render(this.state.shapes,document.getElementById("shapeArea"))
+    }    
     
     makeAShape(shapeInfo){
         if(this.state.width == null){
@@ -88,11 +114,11 @@ class ClassTest extends Component{
             return;
         }
         function shapeStyle(){
-            var styleValue = {}
+            var styleValue = {left: 0, top: 0}
             if(shapeInfo.type === "rectangle" || shapeInfo.type === "circle"){
                 styleValue.width = shapeInfo.width + "px";
                 styleValue.height = shapeInfo.height + "px";
-                styleValue.backgroundColor = shapeInfo.color
+                styleValue.backgroundColor = shapeInfo.color;
             }
             if(shapeInfo.type === "circle"){
                 styleValue.borderRadius = "100%";
@@ -108,11 +134,14 @@ class ClassTest extends Component{
         this.setState({
             area: shapeInfo.getShapeArea()
         })
-        return React.createElement('span',
-        {
-            style: shapeStyle()
-        }
-        , null);
+        return React.createElement("span", {
+            style: shapeStyle(),
+            width: this.state.width,
+            height: this.state.height,
+            color: this.state.color,
+            onMouseOver: this.tooltipOn,
+            onMouseOut: this.tooltipOff,
+        }, null)
     }
 
     render(){
@@ -121,23 +150,42 @@ class ClassTest extends Component{
                 <div className="wrapper_tool">
                     <h3>Class & Object</h3>
                 </div>
-                <div>
-                    <label>Width : </label><input type="number" id="input_set_width" placeholder="width" onChange={this.widthChange}></input>
-                    <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange}></input>
-                    <label>Color : </label><input type="text" id="input_set_color" placeholder="color" onChange={this.colorChange}></input>
+                <div className="shapeStore">
+                    <div className="shapeSet">
+                        <label>Width : </label><input type="number" id="input_set_width" placeholder="width" onChange={this.widthChange}></input>
+                    </div>
+                    <div className="shapeSet">
+                        <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange}></input>
+                    </div>
+                    <div className="shapeSet">
+                        <label>Color : </label><input type="text" id="input_set_color" placeholder="color" onChange={this.colorChange}></input>
+                    </div>
+                    <div className="shapeCreateBtns">
+                        <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>
+                        <button onClick={this.makeATriangle} className="btn_color_01">Make a triangle</button>
+                        <button onClick={this.makeACircle} className="btn_color_01">Make a circle</button>
+                    </div>
+                    <ul className="shapeInfo">
+                        <li>가로 : {this.state.width}</li>
+                        <li>세로 : {this.state.height}</li>
+                        <li>색상 : {this.state.color}</li>
+                        <li>넓이 : {this.state.area}</li>
+                    </ul>
                 </div>
-                <div>
-                    <button onClick={this.makeARectangle}>Make a rectangle</button>
-                    <button onClick={this.makeATriangle}>Make a triangle</button>
-                    <button onClick={this.makeACircle}>Make a circle</button>
-                </div>
-                <div id="shapeArea"></div>
-                <div>
-                    <div>가로 : {this.state.width}</div>
-                    <div>세로 : {this.state.height}</div>
-                    <div>색상 : {this.state.color}</div>
-                    <div>넓이 : {this.state.area}</div>
-                </div>
+                <span id="shapeSheet">
+                    <div id="shapeArea"></div>
+                    <span id="tooltip" style={
+                            {
+                                opacity: this.state.tooltip.opacity,
+                                left: this.state.tooltip.left,
+                                top: this.state.tooltip.top
+                            }
+                        }>
+                            width: {this.state.tooltip.shapeWidth}
+                            height: {this.state.tooltip.shapeHeight}
+                            color: {this.state.tooltip.shapeColor}
+                    </span>
+                </span>
             </div>
         );
     }

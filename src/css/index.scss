@@ -333,6 +333,9 @@ h3{
     span{
         display: inline-block;
     }
+    .focus{
+        outline: px(2) dashed rgba(255, 145, 0, .5);
+    }
 }
 #tooltip{
     position: fixed;

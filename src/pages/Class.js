@@ -35,6 +35,7 @@ class ClassTest extends Component{
         this.makeATriangle = this.makeATriangle.bind(this)
         this.makeACircle = this.makeACircle.bind(this)
         this.tooltipOn = this.tooltipOn.bind(this)
+        this.shapeFocus = this.shapeFocus.bind(this)
         this.state = {
             color: "#000000",
             opacity: 100,
@@ -103,6 +104,25 @@ class ClassTest extends Component{
     }
     makeACircle = () => {
         this.state.shapes.push(this.makeAShape(new Circle("circle", this.state.width, this.state.height, this.state.color)));
+    }
+    
+    shapeFocus = (e) => {
+        e.stopPropagation();
+        // var focusedObj = e.target.parentNode.parentNode.getElementsByClassName("focus")
+        // if(focusedObj.length > 0){
+        //     focusedObj.classList.remove("focus")
+        // }
+        e.target.classList.add("focus")
+        this.setState({
+            width: e.target.getAttribute("width"),
+            height: e.target.getAttribute("height"),
+            color: e.target.getAttribute("color"),
+            opacity : e.target.getAttribute("opacity")
+        })
+    }
+
+    shapeFocusOut = (e) => {
+        e.target.getElementsByClassName("focus")[0].classList.remove("focus")
     }
     
     shiftStart = (e) => {
@@ -201,6 +221,7 @@ class ClassTest extends Component{
             onMouseOut: this.tooltipOff,
             onMouseDown: this.shiftStart,
             onMouseUp: this.shiftEnd,
+            onClick: this.shapeFocus,
         }, null)
     }
 
@@ -212,16 +233,16 @@ class ClassTest extends Component{
                 </div>
                 <div className="shapeStore">
                     <div className="shapeSet">
-                        <label>Width : </label><input type="number" id="input_set_width" placeholder="width" onChange={this.widthChange}></input>
+                        <label>Width : </label><input type="number" id="input_set_width" placeholder="width" onChange={this.widthChange} value={this.state.width}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange}></input>
+                        <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange} value={this.state.height}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Color : </label><input type="color" id="input_set_color" onChange={this.colorChange}></input>
+                        <label>Color : </label><input type="color" id="input_set_color" onChange={this.colorChange} value={this.state.color}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Opacity : </label><input type="range" id="input_set_opacity" defaultValue="100" onChange={this.opacityChange}></input>
+                        <label>Opacity : </label><input type="range" id="input_set_opacity" defaultValue="100" onChange={this.opacityChange} value={this.state.opacity}></input>
                     </div>
                     <div className="shapeCreateBtns">
                         <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>
@@ -229,15 +250,15 @@ class ClassTest extends Component{
                         <button onClick={this.makeACircle} className="btn_color_01">Make a circle</button>
                     </div>
                     <ul className="shapeInfo">
-                        <li>가로 : {this.state.width}</li>
-                        <li>세로 : {this.state.height}</li>
+                        {/* <li>가로 : {this.state.width}</li> */}
+                        {/* <li>세로 : {this.state.height}</li> */}
                         <li>색상 : {this.state.color}</li>
-                        <li>넓이 : {this.state.area}</li>
+                        {/* <li>넓이 : {this.state.area}</li> */}
                         <li>불투명도 : {this.state.opacity}%</li>
                     </ul>
                 </div>
                 <span id="shapeSheet">
-                    <div id="shapeArea">
+                    <div id="shapeArea" onClick={this.shapeFocusOut}>
                         {this.state.shapes.map(shape => (<span>{shape}</span>))}
                     </div>
                     <span id="tooltip" style={

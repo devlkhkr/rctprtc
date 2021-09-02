@@ -355,6 +355,10 @@ h3 {
   display: inline-block;
 }
 
+#shapeArea .focus {
+  outline: 0.10417rem dashed rgba(255, 145, 0, 0.5);
+}
+
 #tooltip {
   position: fixed;
   display: inline-block;

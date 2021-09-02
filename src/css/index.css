@@ -67,6 +67,7 @@ button {
   padding: 0.36458rem 0.72917rem;
   border: 0;
   font-size: 0.72917rem;
+  cursor: pointer;
 }
 
 button.btn_color_01 {
@@ -84,6 +85,7 @@ button.btn_color_01 {
   line-height: 2.60417rem;
   background: #C9CACD;
   padding: 0 1.5625rem;
+  z-index: 9999;
 }
 
 .header h1 {
@@ -266,6 +268,13 @@ h3 {
   background: #3F7CA5;
 }
 
+.userDragNone {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+
 .shapeStore, #shapeArea {
   display: inline-block;
   height: 31.25rem;
@@ -295,14 +304,21 @@ h3 {
 .shapeStore .shapeSet label {
   display: inline-block;
   width: 5.20833rem;
+  height: 1.66667rem;
+  line-height: 1.66667rem;
+  vertical-align: middle;
 }
 
 .shapeStore .shapeSet input {
   width: calc(100% - (100rem / 19.20));
   height: 1.66667rem;
-  padding: 0 0.52083rem;
   border: 0.05208rem solid #bbb;
   font-size: 0.72917rem;
+  vertical-align: middle;
+}
+
+.shapeStore .shapeSet input[type=number] {
+  padding: 0 0.52083rem;
 }
 
 .shapeStore .shapeCreateBtns {
@@ -332,16 +348,20 @@ h3 {
 
 #shapeArea {
   margin: 0.52083rem 0;
+  overflow: hidden;
 }
 
 #shapeArea span {
   display: inline-block;
 }
 
-#shapeArea #tooltip {
+#tooltip {
+  position: fixed;
+  display: inline-block;
   padding: 0.52083rem;
   background: rgba(0, 0, 0, 0.5);
   color: #fff;
+  line-height: 1.5;
 }
 
 @media all and (max-width: 700px) {

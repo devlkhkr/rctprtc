@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import reactDom from 'react-dom';
-import ReactDOM from "react-dom";
 
 class Shape{
     constructor(type, width, height, color){
@@ -38,34 +36,42 @@ class ClassTest extends Component{
         this.makeACircle = this.makeACircle.bind(this)
         this.tooltipOn = this.tooltipOn.bind(this)
         this.state = {
-            width: null,
-            height: null,
-            color: null,
-            area: null,
+            color: "#000000",
+            opacity: 100,
             shapes: [],
             tooltip: {
-                opacity: 1,
-                left: 0,
-                top: 0,
-                shapeWidth: null,
-                shapeHeight: null,
-                shapeColor: null,
+                tooltipOpacity: 0,
             }
         };
     }
     tooltipOn = (e) => {
         this.setState({
             tooltip: {
-                opacity: 1,
+                tooltipOpacity: 1,
+                left: e.clientX + 30,
+                top: e.clientY + 30,
+                shapeType: e.target.getAttribute("type"),
                 shapeWidth: e.target.getAttribute("width"),
                 shapeHeight: e.target.getAttribute("height"),
+                shapeSize: e.target.getAttribute("area"),
                 shapeColor: e.target.getAttribute("color"), 
+                shapeOpacity: e.target.getAttribute("opacity"), 
             }
         })
     }
 
     tooltipOff = (e) => {
-    
+        this.setState({
+            tooltip: {
+                tooltipOpacity: 0,
+                shapeType: null,
+                shapeWidth: null,
+                shapeHeight: null,
+                shapeSize: null,
+                shapeColor: null, 
+                shapeOpacity: null, 
+            }
+        })
     }
 
     widthChange = (e) => {
@@ -83,19 +89,61 @@ class ClassTest extends Component{
             color: e.target.value
         })
     }
+    opacityChange = (e) => {
+        this.setState({
+            opacity: e.target.value
+        })
+    }
 
     makeARectangle = () => {
         this.state.shapes.push(this.makeAShape(new Rectangle("rectangle", this.state.width, this.state.height, this.state.color)));
-        reactDom.render(this.state.shapes,document.getElementById("shapeArea"))
     }
     makeATriangle = () => {
         this.state.shapes.push(this.makeAShape(new Triangle("triangle", this.state.width, this.state.height, this.state.color)));
-        reactDom.render(this.state.shapes,document.getElementById("shapeArea"))
     }
     makeACircle = () => {
         this.state.shapes.push(this.makeAShape(new Circle("circle", this.state.width, this.state.height, this.state.color)));
-        reactDom.render(this.state.shapes,document.getElementById("shapeArea"))
-    }    
+    }
+    
+    shiftStart = (e) => {
+        let pos = { left: 0, x: 0, top: 0, y: 0 }
+        let eventTarget = e.target
+
+        const mouseDownHandler = function(e){
+           //mousedown
+            
+            var currentLeft = parseInt(window.getComputedStyle(e.target).getPropertyValue("left").replace("px",""));
+            var currentTop = parseInt(window.getComputedStyle(e.target).getPropertyValue("top").replace("px",""))
+            pos = {
+                left: currentLeft,
+                top: currentTop,
+                x: e.clientX,
+                y: e.clientY,
+            }
+            document.addEventListener("mousemove", mouseMoveHandler)
+            document.addEventListener("mouseup", mouseUpHandler)
+        }
+        
+        const mouseMoveHandler = function(e){
+            //mousemove
+            
+            const dx = e.clientX - pos.x
+            const dy = e.clientY - pos.y
+
+            eventTarget.style.left = (pos.left + dx) + "px";
+            eventTarget .style.top = (pos.top + dy) + "px";
+        }
+        
+        const mouseUpHandler = function() {
+            //mouseup
+            
+            e.target.removeEventListener("mousedown", mouseDownHandler)
+            document.removeEventListener("mousemove", mouseMoveHandler)
+            document.removeEventListener("mouseup", mouseUpHandler)
+        }
+        
+        e.target.addEventListener("mousedown", mouseDownHandler)
+    }
     
     makeAShape(shapeInfo){
         if(this.state.width == null){
@@ -113,8 +161,13 @@ class ClassTest extends Component{
             document.getElementById("input_set_color").focus();
             return;
         }
-        function shapeStyle(){
-            var styleValue = {left: 0, top: 0}
+        if(this.state.opacity == null){
+            alert("Opacity를 입력하세요");
+            document.getElementById("input_set_opacity").focus();
+            return;
+        }
+        function shapeStyle(el){
+            var styleValue = {left: 0, top: 0, opacity: el.state.opacity + "%"}
             if(shapeInfo.type === "rectangle" || shapeInfo.type === "circle"){
                 styleValue.width = shapeInfo.width + "px";
                 styleValue.height = shapeInfo.height + "px";
@@ -135,18 +188,25 @@ class ClassTest extends Component{
             area: shapeInfo.getShapeArea()
         })
         return React.createElement("span", {
-            style: shapeStyle(),
+            isshape: "true",
+            id: `shape${parseInt(this.state.shapes.length) + 1}`,
+            type: shapeInfo.type,
+            style: shapeStyle(this),
             width: this.state.width,
             height: this.state.height,
+            area: shapeInfo.getShapeArea(),
             color: this.state.color,
-            onMouseOver: this.tooltipOn,
+            opacity: this.state.opacity,
+            onMouseMove: this.tooltipOn,
             onMouseOut: this.tooltipOff,
+            onMouseDown: this.shiftStart,
+            onMouseUp: this.shiftEnd,
         }, null)
     }
 
     render(){
         return (
-            <div>
+            <div className="userDragNone">
                 <div className="wrapper_tool">
                     <h3>Class & Object</h3>
                 </div>
@@ -158,7 +218,10 @@ class ClassTest extends Component{
                         <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Color : </label><input type="text" id="input_set_color" placeholder="color" onChange={this.colorChange}></input>
+                        <label>Color : </label><input type="color" id="input_set_color" onChange={this.colorChange}></input>
+                    </div>
+                    <div className="shapeSet">
+                        <label>Opacity : </label><input type="range" id="input_set_opacity" defaultValue="100" onChange={this.opacityChange}></input>
                     </div>
                     <div className="shapeCreateBtns">
                         <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>
@@ -170,20 +233,26 @@ class ClassTest extends Component{
                         <li>세로 : {this.state.height}</li>
                         <li>색상 : {this.state.color}</li>
                         <li>넓이 : {this.state.area}</li>
+                        <li>불투명도 : {this.state.opacity}%</li>
                     </ul>
                 </div>
                 <span id="shapeSheet">
-                    <div id="shapeArea"></div>
+                    <div id="shapeArea">
+                        {this.state.shapes.map(shape => (<span>{shape}</span>))}
+                    </div>
                     <span id="tooltip" style={
                             {
-                                opacity: this.state.tooltip.opacity,
+                                opacity: this.state.tooltip.tooltipOpacity,
                                 left: this.state.tooltip.left,
                                 top: this.state.tooltip.top
                             }
                         }>
-                            width: {this.state.tooltip.shapeWidth}
-                            height: {this.state.tooltip.shapeHeight}
-                            color: {this.state.tooltip.shapeColor}
+                            type: {this.state.tooltip.shapeType}<br />
+                            width: {this.state.tooltip.shapeWidth}<br />
+                            height: {this.state.tooltip.shapeHeight}<br />
+                            area: {this.state.tooltip.shapeSize}<br />
+                            color: {this.state.tooltip.shapeColor}<br />
+                            opacity: {this.state.tooltip.shapeOpacity}
                     </span>
                 </span>
             </div>

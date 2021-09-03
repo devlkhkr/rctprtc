@@ -131,7 +131,7 @@ class ClassTest extends Component{
             const dy = e.clientY - pos.y
 
             eventTarget.style.left = (pos.left + dx) + "px";
-            eventTarget .style.top = (pos.top + dy) + "px";
+            eventTarget.style.top = (pos.top + dy) + "px";
         }
         
         const mouseUpHandler = function() {

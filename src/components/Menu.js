@@ -8,9 +8,10 @@ const Menu = ({name}) => {
                 <h1><NavLink exact to="/" activeClassName="on">TestWeb</NavLink></h1>
                 <div className="menus">
                     <input type="checkbox" id="navTrigger"></input>
-                    <label htmlFor="navTrigger">
+                    <label htmlFor="navTrigger" className="ham">
                         <i></i><i></i><i></i><i></i>
                     </label>
+                    <label htmlFor="navTrigger" className="mask"></label>
                     <ul className="nav">
                         <li><NavLink exact to="/" activeClassName="on">Main</NavLink></li>
                         <li><NavLink exact to="/about" activeClassName="on">About</NavLink></li>

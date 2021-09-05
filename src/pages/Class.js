@@ -121,7 +121,9 @@ class ClassTest extends Component{
                 y: e.clientY,
             }
             document.addEventListener("mousemove", mouseMoveHandler)
+            document.addEventListener("touchmove", mouseMoveHandler)
             document.addEventListener("mouseup", mouseUpHandler)
+            document.addEventListener("touchend", mouseUpHandler)
         }
         
         const mouseMoveHandler = function(e){
@@ -138,11 +140,15 @@ class ClassTest extends Component{
             //mouseup
             
             e.target.removeEventListener("mousedown", mouseDownHandler)
+            e.target.removeEventListener("touchstart", mouseDownHandler)
             document.removeEventListener("mousemove", mouseMoveHandler)
+            document.removeEventListener("touchmove", mouseMoveHandler)
             document.removeEventListener("mouseup", mouseUpHandler)
+            document.removeEventListener("touchend", mouseUpHandler)
         }
         
         e.target.addEventListener("mousedown", mouseDownHandler)
+        e.target.addEventListener("touchstart", mouseDownHandler)
     }
     
     makeAShape(shapeInfo){

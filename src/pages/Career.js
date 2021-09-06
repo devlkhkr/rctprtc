@@ -5,38 +5,33 @@ class Tools extends Component{
         super(props);
         this.removeNotice = this.removeNotice.bind(this);
         this.state = {
-            notice: true,
+            noticeOpacity: 1,
         }
     }
+
     removeNotice = () => {
         this.setState({
-            notice: false,
+            noticeOpacity: 0,
         })
     }
 
     render(){
         var scrollNotice;
-        if(this.state.notice === true){
-            scrollNotice = 
-                <div className="notice_table_scroll" onTouchStart={this.removeNotice}>
-                    <span>좌우로 스크롤 하세요</span>
-                </div>
-        }
-        else{
-            scrollNotice = null
-        }
         return (
             <div>
                 <div className="wrapper_tool">
                     <h3>Projects</h3>
                 </div>
                 <div className="table_wrapper">
-                    {scrollNotice}
+                    <span className="notice_table_scroll" style={{ opacity : this.state.noticeOpacity }}>좌우로 스크롤 하세요</span>
                     <table className="table_type_01">
                         <colgroup>
                             <col width="" />
                         </colgroup>
                         <thead>
+                            <tr>
+                                <td className="notice_bg" style={{ opacity : this.state.noticeOpacity }}onTouchStart = {this.removeNotice} onMouseDown = {this.removeNotice} onWheel = {this.removeNotice}></td>
+                            </tr>
                             <tr>
                                 <th className="tal">시작년월 ~ 종료년월 (기간)</th>
                                 <th>클라이언트 명</th>

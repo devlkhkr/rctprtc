@@ -258,7 +258,6 @@ h3{
 .table_wrapper{
     display: inline-block;
     width: 100%;
-    height: px(500);
     overflow: auto;
 }
 
@@ -266,6 +265,7 @@ h3{
     min-width: px(1860);
     table-layout: auto;
     text-align: center;
+    font-size: px(12);
     caption{
         text-align: left;
         font-family: $notoM;

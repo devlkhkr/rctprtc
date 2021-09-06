@@ -19,7 +19,7 @@ class Menu extends Component {
         return (
         <div>
             <div className="header">
-                <h1><NavLink exact to="/" activeClassName="on" onClick={this.currentChange} title="Home">Home</NavLink></h1>
+                <h1><NavLink exact to="/" activeClassName="on" onClick={this.currentChange} title="Home">Logo</NavLink></h1>
                 <div className="menus">
                     <input type="checkbox" id="navTrigger"></input>
                     <label htmlFor="navTrigger" className="ham">
@@ -27,8 +27,9 @@ class Menu extends Component {
                     </label>
                     <label htmlFor="navTrigger" className="mask"></label>
                     <ul className="nav">
+                        <li><NavLink exact to="/" activeClassName="on" onClick={this.currentChange} title="Home">Home</NavLink></li>
                         <li><NavLink exact to="/about" activeClassName="on" onClick={this.currentChange} title="About">About</NavLink></li>
-                        <li><NavLink exact to="/career" activeClassName="on" onClick={this.currentChange} title="About">Carrer</NavLink></li>
+                        <li><NavLink exact to="/career" activeClassName="on" onClick={this.currentChange} title="Career">Carrer</NavLink></li>
                         {/* <li><NavLink to="/posts" activeClassName="on" onClick={this.currentChange} title="Post">Post</NavLink></li> */}
                         {/* <li><NavLink to="/tools" activeClassName="on" onClick={this.currentChange} title="Tools">Tools</NavLink></li> */}
                         {/* <li><NavLink to="/sql" activeClassName="on" onClick={this.currentChange} title="SQLTest">SQLTest</NavLink></li> */}

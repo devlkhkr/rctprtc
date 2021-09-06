@@ -272,7 +272,7 @@ h3 {
   min-width: 96.875rem;
   table-layout: auto;
   text-align: center;
-  font-size: 0.625rem;
+  font-family: "notoSansRegular";
 }
 
 .table_type_01 caption {
@@ -288,11 +288,13 @@ h3 {
 
 .table_type_01 tr th, .table_type_01 tr td {
   padding: 0.52083rem;
+  font-size: 0.625rem;
 }
 
 .table_type_01 thead tr th {
   background: #999;
   color: #fff;
+  font-family: "notoSansMedium";
 }
 
 .wrapper_counter span {

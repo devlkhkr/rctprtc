@@ -265,7 +265,7 @@ h3{
     min-width: px(1860);
     table-layout: auto;
     text-align: center;
-    font-size: px(12);
+    font-family: $notoR;
     caption{
         text-align: left;
         font-family: $notoM;
@@ -278,6 +278,7 @@ h3{
         }
         th, td{
             padding: px(10);
+            font-size: px(12);
         }
     }
     thead{
@@ -285,6 +286,7 @@ h3{
             th{
                 background: #999;
                 color: #fff;
+                font-family: $notoM;
             }
         }
     }

@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Menu = ({name}) => {
-    return (
+class Menu extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            currentPage: "Main"
+        }
+        this.currentChange = this.currentChange.bind(this)
+    }
+    currentChange = (e) => {
+        this.setState({
+            currentPage: e.target.innerHTML,
+        })
+    }
+    render(){
+        return (
         <div>
             <div className="header">
                 <h1><NavLink exact to="/" activeClassName="on">TestWeb</NavLink></h1>
@@ -13,19 +26,19 @@ const Menu = ({name}) => {
                     </label>
                     <label htmlFor="navTrigger" className="mask"></label>
                     <ul className="nav">
-                        <li><NavLink exact to="/" activeClassName="on">Main</NavLink></li>
-                        <li><NavLink exact to="/about" activeClassName="on">About</NavLink></li>
-                        <li><NavLink to="/posts" activeClassName="on">Post</NavLink></li>
-                        <li><NavLink to="/tools" activeClassName="on">Tools</NavLink></li>
-                        <li><NavLink to="/sql" activeClassName="on">SQLTest</NavLink></li>
-                        <li><NavLink to="/bind" activeClassName="on">BindTest</NavLink></li>
-                        <li><NavLink to="/class" activeClassName="on">ClassTest</NavLink></li>
+                        <li><NavLink exact to="/" activeClassName="on" onClick={this.currentChange}>Main</NavLink></li>
+                        <li><NavLink exact to="/about" activeClassName="on" onClick={this.currentChange}>About</NavLink></li>
+                        <li><NavLink to="/posts" activeClassName="on" onClick={this.currentChange}>Post</NavLink></li>
+                        <li><NavLink to="/tools" activeClassName="on" onClick={this.currentChange}>Tools</NavLink></li>
+                        <li><NavLink to="/sql" activeClassName="on" onClick={this.currentChange}>SQLTest</NavLink></li>
+                        <li><NavLink to="/bind" activeClassName="on" onClick={this.currentChange}>BindTest</NavLink></li>
+                        <li><NavLink to="/class" activeClassName="on" onClick={this.currentChange}>ClassTest</NavLink></li>
                     </ul>
                 </div>
             </div>
-            <h2 id="currentTitle">{name}</h2>
+            <h2 id="currentTitle">{this.state.currentPage}</h2>
         </div>
     );
-};
+}};
 
 export default Menu;

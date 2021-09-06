@@ -6,14 +6,11 @@ import Menu from 'components/Menu';
 class App extends Component {
     constructor(props) {
         super(props);
-        this.state = {
-            currentPage: "current page title"
-        }
     }
     render(){
         return (
             <div>
-                <Menu name={this.state.currentPage}></Menu>
+                <Menu></Menu>
                 <div className="wrapper_contents">
                     <Route exact path="/" component={Home}/>
                     <Switch>

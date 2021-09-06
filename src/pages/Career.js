@@ -59,7 +59,7 @@ const Tools = () => {
                             <td className="tal">2021.03~2021.06(4개월)</td>
                             <td>삼성닷컴</td>
                             <td>삼성닷컴 홈피트니스 서비스</td>
-                            <td className="tal">'트레이너리스트', '상품상세', '라운지', '나의구독상품', '팝업 가이드' 파블리싱 및 프론트 작업</td>
+                            <td className="tal">'트레이너리스트', '상품상세', '라운지', '나의구독상품', '팝업 가이드'<br />퍼블리싱 및 프론트 작업</td>
                             <td>JSP(HTML), SCSS, Javascript를 통한 화면 구현</td>
                             <td>강남 여삼빌딩</td>
                         </tr>

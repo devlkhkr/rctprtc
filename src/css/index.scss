@@ -266,9 +266,9 @@ h3{
 }
 
 .table_type_01{
-    min-width: px(1860);
+    width: px(1860);
     table-layout: auto;
-    text-align: left;
+    text-align: center;
     font-family: $notoR;
     tr{
         +tr{

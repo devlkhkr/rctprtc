@@ -59,14 +59,14 @@ const Tools = () => {
                             <td className="tal">2021.03~2021.06(4개월)</td>
                             <td>삼성닷컴</td>
                             <td>삼성닷컴 홈피트니스 서비스</td>
-                            <td className="tal">'트레이너리스트', '상품상세', '라운지', '나의구독상품', '전체 페이지 팝업 가이드' 파블리싱 및 프론트 작업</td>
+                            <td className="tal">'트레이너리스트', '상품상세', '라운지', '나의구독상품', '팝업 가이드' 파블리싱 및 프론트 작업</td>
                             <td>JSP(HTML), SCSS, Javascript를 통한 화면 구현</td>
                             <td>강남 여삼빌딩</td>
                         </tr>
                         <tr>
                             <td className="tal">2021.05~2021.07(3개월)</td>
-                            <td>발렉스 서비스 관리 시스템</td>
-                            <td>Valex Service 직원 및 사업장 관리 시스템</td>
+                            <td>발렉스 서비스</td>
+                            <td>직원 및 사업장 관리 시스템</td>
                             <td className="tal">전체 페이지 퍼블리싱 및 프론트 작업</td>
                             <td>vue.js Framework 내 vue, SCSS, javascript를 통한 화면 구현</td>
                             <td>여의도 교보증권빌딩</td>

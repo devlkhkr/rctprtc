@@ -5,6 +5,7 @@ class Menu extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            menuOpend: true,
             currentPage: "Home"
         }
         this.currentChange = this.currentChange.bind(this)
@@ -27,11 +28,12 @@ class Menu extends Component {
                     <label htmlFor="navTrigger" className="mask"></label>
                     <ul className="nav">
                         <li><NavLink exact to="/about" activeClassName="on" onClick={this.currentChange} title="About">About</NavLink></li>
-                        <li><NavLink to="/posts" activeClassName="on" onClick={this.currentChange} title="Post">Post</NavLink></li>
-                        <li><NavLink to="/tools" activeClassName="on" onClick={this.currentChange} title="Tools">Tools</NavLink></li>
-                        <li><NavLink to="/sql" activeClassName="on" onClick={this.currentChange} title="SQLTest">SQLTest</NavLink></li>
-                        <li><NavLink to="/bind" activeClassName="on" onClick={this.currentChange} title="BindTest">BindTest</NavLink></li>
-                        <li><NavLink to="/class" activeClassName="on" onClick={this.currentChange} title="ClassTest">ClassTest</NavLink></li>
+                        <li><NavLink exact to="/career" activeClassName="on" onClick={this.currentChange} title="About">Carrer</NavLink></li>
+                        {/* <li><NavLink to="/posts" activeClassName="on" onClick={this.currentChange} title="Post">Post</NavLink></li> */}
+                        {/* <li><NavLink to="/tools" activeClassName="on" onClick={this.currentChange} title="Tools">Tools</NavLink></li> */}
+                        {/* <li><NavLink to="/sql" activeClassName="on" onClick={this.currentChange} title="SQLTest">SQLTest</NavLink></li> */}
+                        {/* <li><NavLink to="/bind" activeClassName="on" onClick={this.currentChange} title="BindTest">BindTest</NavLink></li> */}
+                        <li><NavLink to="/shapeMaker" activeClassName="on" onClick={this.currentChange} title="Shape Maker">ShapeMaker</NavLink></li>
                     </ul>
                 </div>
             </div>

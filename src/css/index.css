@@ -274,7 +274,7 @@ h3 {
 
 .table_type_01 {
   min-width: 96.875rem;
-  table-layout: auto;
+  table-layout: fixed;
   text-align: center;
   font-family: "notoSansRegular";
 }

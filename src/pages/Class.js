@@ -122,7 +122,10 @@ class ClassTest extends Component{
     }
 
     shapeFocusOut = (e) => {
-        e.target.getElementsByClassName("focus")[0].classList.remove("focus")
+        var focusedShape = e.target.getElementsByClassName("focus");
+        if(focusedShape.length > 0){
+            focusedShape[0].classList.remove("focus")
+        }
     }
     
     shiftStart = (e) => {
@@ -245,23 +248,23 @@ class ClassTest extends Component{
                         <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange} value={this.state.height}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Color : </label><input type="color" id="input_set_color" onChange={this.colorChange} value={this.state.color}></input>
+                        <label>Color : </label><span>{this.state.color}</span><input type="color" id="input_set_color" onChange={this.colorChange} value={this.state.color}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Opacity : </label><input type="range" id="input_set_opacity" defaultValue="100" onChange={this.opacityChange} value={this.state.opacity}></input>
+                        <label>Opacity : </label><span>{this.state.opacity}</span><input type="range" id="input_set_opacity" defaultValue="100" onChange={this.opacityChange} value={this.state.opacity}></input>
                     </div>
                     <div className="shapeCreateBtns">
                         <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>
                         <button onClick={this.makeATriangle} className="btn_color_01">Make a triangle</button>
                         <button onClick={this.makeACircle} className="btn_color_01">Make a circle</button>
                     </div>
-                    <ul className="shapeInfo">
-                        {/* <li>가로 : {this.state.width}</li> */}
-                        {/* <li>세로 : {this.state.height}</li> */}
+                    {/* <ul className="shapeInfo">
+                        <li>가로 : {this.state.width}</li>
+                        <li>세로 : {this.state.height}</li>
                         <li>색상 : {this.state.color}</li>
-                        {/* <li>넓이 : {this.state.area}</li> */}
+                        <li>넓이 : {this.state.area}</li>
                         <li>불투명도 : {this.state.opacity}%</li>
-                    </ul>
+                    </ul> */}
                 </div>
                 <span id="shapeSheet">
                     <div id="shapeArea" onClick={this.shapeFocusOut}>

@@ -317,7 +317,7 @@ h3 {
   margin-top: 0.52083rem;
 }
 
-.shapeStore .shapeSet label {
+.shapeStore .shapeSet label, .shapeStore .shapeSet span {
   display: inline-block;
   width: 5.20833rem;
   height: 1.66667rem;
@@ -326,7 +326,7 @@ h3 {
 }
 
 .shapeStore .shapeSet input {
-  width: calc(100% - (100rem / 19.20));
+  width: calc(100% - (200rem / 19.20));
   height: 1.66667rem;
   border: 0.05208rem solid #bbb;
   font-size: 0.72917rem;
@@ -334,6 +334,7 @@ h3 {
 }
 
 .shapeStore .shapeSet input[type=number] {
+  width: calc(100% - (100rem / 19.20));
   padding: 0 0.52083rem;
 }
 

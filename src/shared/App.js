@@ -24,7 +24,7 @@ class App extends Component {
                     <Route path="/tools" component={Tools}/>
                     <Route path="/sql" component={Sql}/>
                     <Route path="/bind" component={Bind}/>
-                    <Route path="/Class" component={Class}/>
+                    <Route path="/class" component={Class}/>
                 </div>
             </div>
         );

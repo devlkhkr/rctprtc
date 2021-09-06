@@ -35,7 +35,6 @@ class ClassTest extends Component{
         this.makeATriangle = this.makeATriangle.bind(this)
         this.makeACircle = this.makeACircle.bind(this)
         this.tooltipOn = this.tooltipOn.bind(this)
-        this.shapeFocus = this.shapeFocus.bind(this)
         this.state = {
             color: "#000000",
             opacity: 100,
@@ -106,25 +105,6 @@ class ClassTest extends Component{
         this.state.shapes.push(this.makeAShape(new Circle("circle", this.state.width, this.state.height, this.state.color)));
     }
     
-    shapeFocus = (e) => {
-        e.stopPropagation();
-        // var focusedObj = e.target.parentNode.parentNode.getElementsByClassName("focus")
-        // if(focusedObj.length > 0){
-        //     focusedObj.classList.remove("focus")
-        // }
-        e.target.classList.add("focus")
-        this.setState({
-            width: e.target.getAttribute("width"),
-            height: e.target.getAttribute("height"),
-            color: e.target.getAttribute("color"),
-            opacity : e.target.getAttribute("opacity")
-        })
-    }
-
-    shapeFocusOut = (e) => {
-        e.target.getElementsByClassName("focus")[0].classList.remove("focus")
-    }
-    
     shiftStart = (e) => {
         let pos = { left: 0, x: 0, top: 0, y: 0 }
         let eventTarget = e.target
@@ -141,9 +121,7 @@ class ClassTest extends Component{
                 y: e.clientY,
             }
             document.addEventListener("mousemove", mouseMoveHandler)
-            document.addEventListener("touchmove", mouseMoveHandler)
             document.addEventListener("mouseup", mouseUpHandler)
-            document.addEventListener("touchend", mouseUpHandler)
         }
         
         const mouseMoveHandler = function(e){
@@ -160,15 +138,11 @@ class ClassTest extends Component{
             //mouseup
             
             e.target.removeEventListener("mousedown", mouseDownHandler)
-            e.target.removeEventListener("touchstart", mouseDownHandler)
             document.removeEventListener("mousemove", mouseMoveHandler)
-            document.removeEventListener("touchmove", mouseMoveHandler)
             document.removeEventListener("mouseup", mouseUpHandler)
-            document.removeEventListener("touchend", mouseUpHandler)
         }
         
         e.target.addEventListener("mousedown", mouseDownHandler)
-        e.target.addEventListener("touchstart", mouseDownHandler)
     }
     
     makeAShape(shapeInfo){
@@ -227,7 +201,6 @@ class ClassTest extends Component{
             onMouseOut: this.tooltipOff,
             onMouseDown: this.shiftStart,
             onMouseUp: this.shiftEnd,
-            onClick: this.shapeFocus,
         }, null)
     }
 
@@ -235,20 +208,20 @@ class ClassTest extends Component{
         return (
             <div className="userDragNone">
                 <div className="wrapper_tool">
-                    <h3>Class & Object</h3>
+                    <h3>Shape maker</h3>
                 </div>
                 <div className="shapeStore">
                     <div className="shapeSet">
-                        <label>Width : </label><input type="number" id="input_set_width" placeholder="width" onChange={this.widthChange} value={this.state.width}></input>
+                        <label>Width : </label><input type="number" id="input_set_width" placeholder="width" onChange={this.widthChange}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange} value={this.state.height}></input>
+                        <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Color : </label><input type="color" id="input_set_color" onChange={this.colorChange} value={this.state.color}></input>
+                        <label>Color : </label><input type="color" id="input_set_color" onChange={this.colorChange}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Opacity : </label><input type="range" id="input_set_opacity" defaultValue="100" onChange={this.opacityChange} value={this.state.opacity}></input>
+                        <label>Opacity : </label><input type="range" id="input_set_opacity" defaultValue="100" onChange={this.opacityChange}></input>
                     </div>
                     <div className="shapeCreateBtns">
                         <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>
@@ -256,15 +229,15 @@ class ClassTest extends Component{
                         <button onClick={this.makeACircle} className="btn_color_01">Make a circle</button>
                     </div>
                     <ul className="shapeInfo">
-                        {/* <li>가로 : {this.state.width}</li> */}
-                        {/* <li>세로 : {this.state.height}</li> */}
+                        <li>가로 : {this.state.width}</li>
+                        <li>세로 : {this.state.height}</li>
                         <li>색상 : {this.state.color}</li>
-                        {/* <li>넓이 : {this.state.area}</li> */}
+                        <li>넓이 : {this.state.area}</li>
                         <li>불투명도 : {this.state.opacity}%</li>
                     </ul>
                 </div>
                 <span id="shapeSheet">
-                    <div id="shapeArea" onClick={this.shapeFocusOut}>
+                    <div id="shapeArea">
                         {this.state.shapes.map(shape => (<span>{shape}</span>))}
                     </div>
                     <span id="tooltip" style={

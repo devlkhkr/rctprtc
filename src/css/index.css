@@ -37,6 +37,7 @@ html {
 html body {
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 html #root {
@@ -48,7 +49,7 @@ html #root {
 }
 
 h2 {
-  display: inlin-block;
+  display: inline-block;
   width: 100%;
   height: 2.08333rem;
   line-height: 2.08333rem;
@@ -133,7 +134,11 @@ button.btn_color_01 {
   right: 0;
 }
 
-.header .menus label {
+.header .menus input:checked ~ .mask {
+  display: inline-block;
+}
+
+.header .menus .ham {
   display: inline-block;
   width: 1.5625rem;
   height: 1.17188rem;
@@ -146,7 +151,7 @@ button.btn_color_01 {
   vertical-align: sub;
 }
 
-.header .menus label i {
+.header .menus .ham i {
   display: block;
   position: absolute;
   height: 0.20833rem;
@@ -161,16 +166,27 @@ button.btn_color_01 {
   transition: .25s ease-in-out;
 }
 
-.header .menus label i:nth-child(1) {
+.header .menus .ham i:nth-child(1) {
   top: 0;
 }
 
-.header .menus label i:nth-child(2), .header .menus label i:nth-child(3) {
+.header .menus .ham i:nth-child(2), .header .menus .ham i:nth-child(3) {
   top: 0.46875rem;
 }
 
-.header .menus label i:nth-child(4) {
+.header .menus .ham i:nth-child(4) {
   top: 0.9375rem;
+}
+
+.mask {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 2.60417rem;
+  width: 100%;
+  height: calc(100% - (50rem / 19.20));
+  z-index: 998;
+  background: rgba(0, 0, 0, 0.5);
 }
 
 ul.nav {
@@ -375,6 +391,9 @@ h3 {
   .shapeStore, #shapeArea {
     width: 100%;
     padding: 0;
+  }
+  .shapeStore {
+    height: auto;
   }
 }
 /*# sourceMappingURL=index.css.map */

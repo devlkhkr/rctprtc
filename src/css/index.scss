@@ -28,6 +28,10 @@
 }
 /* e : 폰트 선언 */
 
+.tal{
+    text-align: left;
+}
+
 html{
     font-size: 1vw;
     width: 100%;
@@ -266,12 +270,6 @@ h3{
     table-layout: auto;
     text-align: center;
     font-family: $notoR;
-    caption{
-        text-align: left;
-        font-family: $notoM;
-        font-size: px(14);
-        margin-bottom: px(10);
-    }
     tr{
         +tr{
             border-top: px(1) solid #ddd;
@@ -279,6 +277,11 @@ h3{
         th, td{
             padding: px(10);
             font-size: px(12);
+            vertical-align: middle;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            word-break: break-all;
         }
     }
     thead{

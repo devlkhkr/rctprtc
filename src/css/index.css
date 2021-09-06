@@ -27,6 +27,10 @@
 }
 
 /* e : 폰트 선언 */
+.tal {
+  text-align: left;
+}
+
 html {
   font-size: 1vw;
   width: 100%;
@@ -275,13 +279,6 @@ h3 {
   font-family: "notoSansRegular";
 }
 
-.table_type_01 caption {
-  text-align: left;
-  font-family: "notoSansMedium";
-  font-size: 0.72917rem;
-  margin-bottom: 0.52083rem;
-}
-
 .table_type_01 tr + tr {
   border-top: 0.05208rem solid #ddd;
 }
@@ -289,6 +286,11 @@ h3 {
 .table_type_01 tr th, .table_type_01 tr td {
   padding: 0.52083rem;
   font-size: 0.625rem;
+  vertical-align: middle;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
 }
 
 .table_type_01 thead tr th {

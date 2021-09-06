@@ -267,17 +267,16 @@ h3{
 
 .table_type_01{
     min-width: px(1860);
-    table-layout: fixed;
+    table-layout: auto;
     text-align: center;
     font-family: $notoR;
-    font-size: px(12)!important;
     tr{
         +tr{
             border-top: px(1) solid #ddd;
         }
         th, td{
             padding: px(10);
-            font-size: px(12)!important;
+            font-size: px(12);
             vertical-align: middle;
             white-space: nowrap;
             overflow: hidden;
@@ -297,7 +296,7 @@ h3{
     tbody{
         tr{
             td{
-                font-size: px(12)!important;
+
             }
         }
     }

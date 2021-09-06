@@ -274,10 +274,9 @@ h3 {
 
 .table_type_01 {
   min-width: 96.875rem;
-  table-layout: fixed;
+  table-layout: auto;
   text-align: center;
   font-family: "notoSansRegular";
-  font-size: 0.625rem !important;
 }
 
 .table_type_01 tr + tr {
@@ -286,7 +285,7 @@ h3 {
 
 .table_type_01 tr th, .table_type_01 tr td {
   padding: 0.52083rem;
-  font-size: 0.625rem !important;
+  font-size: 0.625rem;
   vertical-align: middle;
   white-space: nowrap;
   overflow: hidden;
@@ -298,10 +297,6 @@ h3 {
   background: #999;
   color: #fff;
   font-family: "notoSansMedium";
-}
-
-.table_type_01 tbody tr td {
-  font-size: 0.625rem !important;
 }
 
 .wrapper_counter span {

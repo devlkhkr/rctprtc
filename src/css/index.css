@@ -270,6 +270,49 @@ h3 {
   display: inline-block;
   width: 100%;
   overflow: auto;
+  position: relative;
+}
+
+.table_wrapper .notice_table_scroll {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  text-align: center;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  opacity: 1;
+}
+
+.table_wrapper .notice_table_scroll span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 0.625rem;
+  vertical-align: middle;
+}
+
+.table_wrapper .notice_table_scroll span::before, .table_wrapper .notice_table_scroll span::after {
+  content: "";
+  display: inline-block;
+  width: 0.625rem;
+  height: 0.625rem;
+  background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 140 140" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><g><path d="m121.3,34.6c-1.6-1.6-4.2-1.6-5.8,0l-51,51.1-51.1-51.1c-1.6-1.6-4.2-1.6-5.8,0-1.6,1.6-1.6,4.2 0,5.8l53.9,53.9c0.8,0.8 1.8,1.2 2.9,1.2 1,0 2.1-0.4 2.9-1.2l53.9-53.9c1.7-1.6 1.7-4.2 0.1-5.8z" stroke="%23fff" stroke-linejoin="round" stroke-width="6" fill="%23fff"/></g></svg>');
+  background-size: 100%;
+  vertical-align: middle;
+}
+
+.table_wrapper .notice_table_scroll span::before {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  margin-right: 0.52083rem;
+}
+
+.table_wrapper .notice_table_scroll span::after {
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+  margin-left: 0.52083rem;
 }
 
 .table_type_01 {

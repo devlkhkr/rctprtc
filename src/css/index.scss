@@ -263,7 +263,44 @@ h3{
     display: inline-block;
     width: 100%;
     overflow: auto;
+    position: relative;
+    .notice_table_scroll{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        text-align: center;
+        background: rgba(0,0,0,.5);
+        color: #fff;
+        opacity: 1;
+        span{
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            font-size: px(12);
+            vertical-align: middle;
+            &::before, &::after{
+                content: "";
+                display: inline-block;
+                width: px(12);
+                height: px(12);
+                background: arrowDown(fff);
+                background-size: 100%;
+                vertical-align: middle;
+            }
+            &::before{
+                transform: rotate(90deg);
+                margin-right: px(10);
+            }
+            &::after{
+                transform: rotate(-90deg);
+                margin-left: px(10);
+            }
+
+        }
+    }
 }
+
 
 .table_type_01{
     min-width: 100%;

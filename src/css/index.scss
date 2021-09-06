@@ -266,7 +266,7 @@ h3{
 }
 
 .table_type_01{
-    width: px(1860);
+    min-width: 100%;
     table-layout: auto;
     text-align: center;
     font-family: $notoR;

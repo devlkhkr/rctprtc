@@ -273,7 +273,7 @@ h3 {
 }
 
 .table_type_01 {
-  width: 96.875rem;
+  min-width: 100%;
   table-layout: auto;
   text-align: center;
   font-family: "notoSansRegular";

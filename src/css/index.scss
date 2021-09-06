@@ -270,13 +270,14 @@ h3{
     table-layout: fixed;
     text-align: center;
     font-family: $notoR;
+    font-size: px(12)!important;
     tr{
         +tr{
             border-top: px(1) solid #ddd;
         }
         th, td{
             padding: px(10);
-            font-size: px(12);
+            font-size: px(12)!important;
             vertical-align: middle;
             white-space: nowrap;
             overflow: hidden;
@@ -296,7 +297,7 @@ h3{
     tbody{
         tr{
             td{
-
+                font-size: px(12)!important;
             }
         }
     }

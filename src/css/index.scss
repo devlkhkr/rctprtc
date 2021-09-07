@@ -261,13 +261,13 @@ h3{
 
 @keyframes bounce {
     0%{
-        transform: translate(-50%,-50%) scale(1);
+        opacity: 1;
     }
     50%{
-        transform: translate(-50%,-50%) scale(1.1);
+        opacity: 0.2;
     }
     100%{
-        transform: translate(-50%,-50%) scale(1);
+        opacity: 1;
     }
 }
 
@@ -280,10 +280,9 @@ h3{
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%) scale(1);
+        transform: translate(-50%,-50%);
         font-family: $notoM;
         font-size: px(12);
-        vertical-align: middle;
         color: #fff;
         z-index: 1;
         transition-duration: .3s;
@@ -291,11 +290,11 @@ h3{
         &::before, &::after{
             content: "";
             display: inline-block;
-            width: px(12);
-            height: px(12);
+            width: px(16);
+            height: px(16);
             background: arrowDown(fff);
             background-size: 100%;
-            vertical-align: middle;
+            vertical-align: text-bottom;
         }
         &::before{
             transform: rotate(90deg);

@@ -16,7 +16,6 @@ class Tools extends Component{
     }
 
     render(){
-        var scrollNotice;
         return (
             <div>
                 <div className="wrapper_tool">
@@ -51,7 +50,7 @@ class Tools extends Component{
                                 <td>용산 아모레퍼시픽 사옥</td>
                             </tr>
                             <tr>
-                                <td className="tal">2020.01~2021.02(1년 2개월)</td>
+                                <td className="tal">2020.01~2021.02 (1년 2개월)</td>
                                 <td>코리안리</td>
                                 <td>해외 총판 결제 시스템</td>
                                 <td className="tal">전체 페이지 디자인, 퍼블리싱 및 프론트 영역 개발, 운영</td>
@@ -59,7 +58,7 @@ class Tools extends Component{
                                 <td>종각 코리안리빌딩</td>
                             </tr>
                             <tr>
-                                <td className="tal">2020.02~2020.08(7개월)</td>
+                                <td className="tal">2020.02~2020.08 (7개월)</td>
                                 <td>SK매직</td>
                                 <td>SK매직스쿨 웹앱</td>
                                 <td className="tal">전체페이지(FO, BO) 퍼블리싱 및 프론트 영역 구축</td>
@@ -67,7 +66,7 @@ class Tools extends Component{
                                 <td>서울역 연세 세브란스빌딩</td>
                             </tr>
                             <tr>
-                                <td className="tal">2020.08~2021.02(7개월)</td>
+                                <td className="tal">2020.08~2021.02 (7개월)</td>
                                 <td>SK매직</td>
                                 <td>SK매직 서비스센터 모바일 웹앱</td>
                                 <td className="tal">전체페이지(FO, BO) 퍼블리싱 및 프론트 영역 구축</td>
@@ -75,7 +74,7 @@ class Tools extends Component{
                                 <td>서울역 대우재단빌딩</td>
                             </tr>
                             <tr>
-                                <td className="tal">2021.03~2021.06(4개월)</td>
+                                <td className="tal">2021.03~2021.06 (4개월)</td>
                                 <td>삼성닷컴</td>
                                 <td>삼성닷컴 홈피트니스 서비스</td>
                                 <td className="tal">'트레이너리스트', '상품상세', '라운지', '나의구독상품', '팝업 가이드' 퍼블리싱 및 프론트 작업</td>
@@ -83,7 +82,7 @@ class Tools extends Component{
                                 <td>강남 여삼빌딩</td>
                             </tr>
                             <tr>
-                                <td className="tal">2021.05~2021.07(3개월)</td>
+                                <td className="tal">2021.05~2021.07 (3개월)</td>
                                 <td>발렉스 서비스</td>
                                 <td>직원 및 사업장 관리 시스템</td>
                                 <td className="tal">전체 페이지 퍼블리싱 및 프론트 작업</td>
@@ -91,7 +90,7 @@ class Tools extends Component{
                                 <td>여의도 교보증권빌딩</td>
                             </tr>
                             <tr>
-                                <td className="tal">2021.06~2021.08(3개월)</td>
+                                <td className="tal">2021.06~2021.08 (3개월)</td>
                                 <td>SK매직</td>
                                 <td>SK매직 카탈로그 웹앱</td>
                                 <td className="tal">전체 페이지 퍼블리싱 및 프론트 작업</td>

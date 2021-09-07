@@ -280,7 +280,7 @@ h3{
         position: absolute;
         left: 50%;
         top: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%,-50%) scale(1);
         font-family: $notoM;
         font-size: px(12);
         vertical-align: middle;

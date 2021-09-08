@@ -19,6 +19,25 @@ class Tools extends Component{
         return (
             <div>
                 <div className="wrapper_tool">
+                    <h3>Programming Language</h3>
+                </div>
+                <div className="table_wrapper">
+                    <table className="table_type_01">
+                        <colgroup>
+                            <col width="" />
+                        </colgroup>
+                        <thead>
+                            <tr>
+                                <th>Icon</th>
+                                <th>Language</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                        </tbody>
+                    </table>
+                </div>
+                <div className="wrapper_tool">
                     <h3>Projects</h3>
                 </div>
                 <div className="table_wrapper">

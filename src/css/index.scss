@@ -277,6 +277,7 @@ h3{
     overflow: auto;
     position: relative;
     // border-bottom: px(2) solid #999;
+    margin-bottom: px(20);
     .notice_table_scroll{
         position: absolute;
         left: 50%;
@@ -352,7 +353,15 @@ h3{
     tbody{
         tr{
             td{
-
+                ul{
+                    li{
+                        text-align: left;
+                        &::before{
+                            content: "\2022";
+                            margin-right: px(8);
+                        }
+                    }
+                }
             }
         }
     }

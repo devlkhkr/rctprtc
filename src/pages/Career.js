@@ -22,18 +22,98 @@ class Tools extends Component{
                     <h3>Programming Language</h3>
                 </div>
                 <div className="table_wrapper">
+                    <span className="notice_table_scroll" style={{ opacity : this.state.noticeOpacity }}>좌우로 스크롤 하세요</span>
                     <table className="table_type_01">
                         <colgroup>
                             <col width="" />
                         </colgroup>
                         <thead>
                             <tr>
-                                <th>Icon</th>
+                                <td className="notice_bg" style={{ opacity : this.state.noticeOpacity }}onTouchStart = {this.removeNotice} onMouseDown = {this.removeNotice} onWheel = {this.removeNotice}></td>
+                            </tr>
+                            <tr>
+                                <th></th>
                                 <th>Language</th>
+                                <th>Detail</th>
                             </tr>
                         </thead>
                         <tbody>
-                            
+                            <tr>
+                                <td></td>
+                                <td>HTML</td>
+                                <td>
+                                    <ul>
+                                        <li>웹접근성과 웹표준을 준수한 시멘틱 구조 태그 사용</li>
+                                        <li>템블릿엔진인 PUG(Jade)를 사용하여 코드의 간소화, 시간 단축</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>CSS/SCSS</td>
+                                <td>
+                                    <ul>
+                                        <li>SCSS(SASS) 컴파일을 통한 코드의 간소화 및 통일, CSS 요소의 변수화, 함수화</li>
+                                        <li>인스턴스의 공통화로 CSS 코드 단축</li>
+                                        <li>다양한 반응형웹 개발 경험, 다양한 해상도에서 통일 된 화면 출력</li>
+                                        <li>브라우저 종류 및 버전의 차이에 따른 크로스 브라우징</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Javascript</td>
+                                <td>
+                                    <ul>
+                                        <li>Vanilla JS, ES6, TypeScript, Jquery 등을 통한 기능구현</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Node.js</td>
+                                <td>
+                                    <ul>
+                                        <li>Node.js 서버를 통해 Express Framework에서 React,Vue,PUG 등을 사용하여 프로젝트 구축</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>Vue.js</td>
+                                <td>
+                                    <ul>
+                                        <li>Vue.js 프로젝트 API 구성 및 프론트영역 구축</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>React</td>
+                                <td>
+                                    <ul>
+                                        <li>React 프로젝트 API 구성 및 프론트영역 구축</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>MY-SQL</td>
+                                <td>
+                                    <ul>
+                                        <li>기본적인 CRUD 쿼리작성 및 Ajax 통신으로 데이터를 화면에 출력</li>
+                                    </ul>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td></td>
+                                <td>GitHub</td>
+                                <td>
+                                    <ul>
+                                        <li>git 레퍼지토리를 통한 협업 브랜치, 버전관리</li>
+                                    </ul>
+                                </td>
+                            </tr>
                         </tbody>
                     </table>
                 </div>

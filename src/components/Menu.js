@@ -19,7 +19,7 @@ class Menu extends Component {
         return (
         <div>
             <div className="header">
-                <h1><NavLink exact to="/" activeClassName="on" onClick={this.currentChange} title="Home">Logo</NavLink></h1>
+                <h1><NavLink exact to="/" activeClassName="on" onClick={this.currentChange} title="Home">DevLKH</NavLink></h1>
                 <div className="menus">
                     <input type="checkbox" id="navTrigger"></input>
                     <label htmlFor="navTrigger" className="ham">

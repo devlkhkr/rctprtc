@@ -295,6 +295,7 @@ h3 {
   width: 100%;
   overflow: auto;
   position: relative;
+  margin-bottom: 1.04167rem;
 }
 
 .table_wrapper .notice_table_scroll {
@@ -374,6 +375,15 @@ h3 {
   background: #999;
   color: #fff;
   font-family: "notoSansMedium";
+}
+
+.table_type_01 tbody tr td ul li {
+  text-align: left;
+}
+
+.table_type_01 tbody tr td ul li::before {
+  content: "\2022";
+  margin-right: 0.41667rem;
 }
 
 .wrapper_counter span {

@@ -29,7 +29,7 @@ class Tools extends Component{
                         </colgroup>
                         <thead>
                             <tr>
-                                <td className="notice_bg" style={{ opacity : this.state.noticeOpacity }}onTouchStart = {this.removeNotice} onMouseDown = {this.removeNotice} onWheel = {this.removeNotice}></td>
+                                <td className="notice_bg" style={{ opacity : this.state.noticeOpacity }} onTouchStart = {this.removeNotice} onMouseDown = {this.removeNotice} onWheel = {this.removeNotice}></td>
                             </tr>
                             <tr>
                                 <th></th>
@@ -128,7 +128,7 @@ class Tools extends Component{
                         </colgroup>
                         <thead>
                             <tr>
-                                <td className="notice_bg" style={{ opacity : this.state.noticeOpacity }}onTouchStart = {this.removeNotice} onMouseDown = {this.removeNotice} onWheel = {this.removeNotice}></td>
+                                <td className="notice_bg" style={{ opacity : this.state.noticeOpacity }} onTouchStart = {this.removeNotice} onMouseDown = {this.removeNotice} onWheel = {this.removeNotice}></td>
                             </tr>
                             <tr>
                                 <th className="tal">시작년월 ~ 종료년월 (기간)</th>

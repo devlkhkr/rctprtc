@@ -288,7 +288,7 @@ h3{
         color: #fff;
         z-index: 1;
         transition-duration: .3s;
-        animation: bounce 2s linear infinite;
+        // animation: bounce 2s linear infinite;
         &::before, &::after{
             content: "";
             display: inline-block;

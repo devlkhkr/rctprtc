@@ -310,8 +310,6 @@ h3 {
   z-index: 1;
   -webkit-transition-duration: .3s;
           transition-duration: .3s;
-  -webkit-animation: bounce 2s linear infinite;
-          animation: bounce 2s linear infinite;
 }
 
 .table_wrapper .notice_table_scroll::before, .table_wrapper .notice_table_scroll::after {

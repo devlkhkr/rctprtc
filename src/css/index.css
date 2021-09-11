@@ -448,6 +448,9 @@ h3 {
 }
 
 .shapeStore .shapeSet input {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   width: calc(100% - (200rem / 19.20));
   height: 1.66667rem;
   border: 0.05208rem solid #bbb;

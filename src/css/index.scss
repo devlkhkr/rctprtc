@@ -420,6 +420,7 @@ h3{
             vertical-align: middle;
         }
         input{
+            appearance: none;
             width: calc(100% - (200rem / 19.20));
             height: px(32);
             border: px(1) solid #bbb;

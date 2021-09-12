@@ -521,5 +521,8 @@ h3 {
   .shapeStore {
     height: auto;
   }
+  #shapeArea {
+    height: 15.625rem;
+  }
 }
 /*# sourceMappingURL=index.css.map */

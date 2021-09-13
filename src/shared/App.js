@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Home, About, Career, Posts, Tools, Sql, Bind, shapeMaker } from 'pages';
+import { Home, About, Career, Posts, Tools, Sql, Bind, ShapeMaker, Users } from 'pages';
 import Menu from 'components/Menu';
 
 class App extends Component {
@@ -25,7 +25,8 @@ class App extends Component {
                     <Route path="/tools" component={Tools}/>
                     <Route path="/sql" component={Sql}/>
                     <Route path="/bind" component={Bind}/>
-                    <Route path="/shapeMaker" component={shapeMaker}/>
+                    <Route path="/shapeMaker" component={ShapeMaker}/>
+                    <Route path="/users" component={Users}/>
                 </div>
             </div>
         );

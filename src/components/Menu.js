@@ -35,6 +35,7 @@ class Menu extends Component {
                         {/* <li><NavLink to="/sql" activeClassName="on" onClick={this.currentChange} title="SQLTest">SQLTest</NavLink></li> */}
                         {/* <li><NavLink to="/bind" activeClassName="on" onClick={this.currentChange} title="BindTest">BindTest</NavLink></li> */}
                         <li><NavLink to="/shapeMaker" activeClassName="on" onClick={this.currentChange} title="Shape Maker">ShapeMaker</NavLink></li>
+                        <li><NavLink to="/users" activeClassName="on" onClick={this.currentChange} title="Users">Users</NavLink></li>
                     </ul>
                 </div>
             </div>

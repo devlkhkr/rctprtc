@@ -37,6 +37,7 @@ html{
     width: 100%;
     height: 100%;
     font-family: $notoR;
+    color: #444;
     body{
         width: 100%;
         height: 100%;
@@ -48,6 +49,7 @@ html{
         height: 100%;
         overflow: auto;
         padding-top: px(50);
+        background-color: #f4f4f4;
     }
 }
 
@@ -57,12 +59,12 @@ h2{
     height: px(40);
     line-height: px(40);
     padding: 0 px(60);
-    background-image: location(DE5867);
+    background-image: location(41d6c3);
     background-repeat: no-repeat;
     background-size: px(20);
     background-position: center left px(30);
     background-color: $color2;
-    color: #fff;
+    color: #f5f5f5;
     font-family: $notoM;
     font-size: px(14);
 }
@@ -74,8 +76,12 @@ button{
     cursor: pointer;
     &.btn_color_01{
         background: rgb(119, 184, 221);
-        color: #fff;
+        color: #f5f5f5;
     }
+}
+
+input{
+    background: transparent;
 }
 
 .header{
@@ -94,7 +100,7 @@ button{
         a{
             font-family: $notoB;
             font-size: px(20);
-            color: $color1;
+            color: #f5f5f5;
         }
     }
     .menus{
@@ -158,7 +164,7 @@ button{
                 position: absolute;
                 height: px(4);
                 width: 100%;
-                background: $color1;
+                background: #f5f5f5;
                 border-radius: px(4);
                 opacity: 1;
                 left: 0;
@@ -212,7 +218,7 @@ ul.nav{
             display: inline-block;
             width: 100%;
             padding: px(30);
-            color: $color3;
+            color: #fff;
             transition-duration: .3s;
             font-family: $notoB;
             font-size: px(16);
@@ -220,7 +226,7 @@ ul.nav{
                 color: $color6;
             }
             &.on{
-                color: $color6;
+                color: $color7;
             }
         }
     }
@@ -250,7 +256,6 @@ ul.nav_second{
     padding: px(30);
     font-family: $notoR;
     font-size: px(14);
-    color: $color1;
 }
 
 h3{
@@ -285,7 +290,7 @@ h3{
         transform: translate(-50%,-50%);
         font-family: $notoM;
         font-size: px(12);
-        color: #fff;
+        color: #f5f5f5;
         z-index: 1;
         transition-duration: .3s;
         // animation: bounce 2s linear infinite;
@@ -322,7 +327,7 @@ h3{
         position: absolute;
         text-align: center;
         background: rgba(0,0,0,.6);
-        color: #fff;
+        color: #f5f5f5;
         opacity: 1;
         transition-duration: .3s;
     }
@@ -345,7 +350,7 @@ h3{
         tr{
             th{
                 background: #999;
-                color: #fff;
+                color: #f5f5f5;
                 font-family: $notoM;
             }
         }
@@ -378,7 +383,7 @@ h3{
         height: px(30);
         background: $color1;
         border: 0;
-        color: #fff;
+        color: #f5f5f5;
         border-radius: px(3);
         cursor: pointer;
         transition-duration: .3s;
@@ -467,7 +472,7 @@ h3{
     display: inline-block;
     padding: px(10);
     background: rgba(0,0,0,.5);
-    color: #fff;
+    color: #f5f5f5;
     line-height: 1.5;
 }
 

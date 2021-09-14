@@ -6,5 +6,5 @@ export { default as Post } from './Post';
 export { default as Tools } from './Tools';
 export { default as Sql } from './Sql';
 export { default as Bind } from './Bind';
-export { default as ShapeMaker } from './ShapeMaker';
+export { default as ShapeMaker } from './shapeMaker';
 export { default as Users } from './Users';

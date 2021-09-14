@@ -17,7 +17,7 @@ class Rectangle extends Shape{
 }
 class Triangle extends Shape{
     getShapeArea(){
-        return this.width * this.height / 2;
+        return this.width * this.height / 2; 
     }
 }
 class Circle extends Shape{

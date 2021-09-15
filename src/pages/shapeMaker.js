@@ -139,7 +139,7 @@ class ClassTest extends Component{
             var currentLeft = parseInt(window.getComputedStyle(e.target).getPropertyValue("left").replace("px",""));
             var currentTop = parseInt(window.getComputedStyle(e.target).getPropertyValue("top").replace("px",""))
             
-            if(e.type == "touchstart"){
+            if(e.type === "touchstart"){
                 pos = {
                     left: currentLeft,
                     top: currentTop,
@@ -147,7 +147,7 @@ class ClassTest extends Component{
                     y: e.changedTouches[0].clientY,
                 }
             }
-            else if(e.type == "mousedown"){
+            else if(e.type === "mousedown"){
                 pos = {
                     left: currentLeft,
                     top: currentTop,
@@ -165,8 +165,8 @@ class ClassTest extends Component{
         
         const mouseMoveHandler = function(e){
 
-            var eventClientX = e.type == "touchmove" ? e.changedTouches[0].clientX : e.clientX;
-            var eventClientY = e.type == "touchmove" ? e.changedTouches[0].clientY : e.clientY;
+            var eventClientX = e.type === "touchmove" ? e.changedTouches[0].clientX : e.clientX;
+            var eventClientY = e.type === "touchmove" ? e.changedTouches[0].clientY : e.clientY;
 
             //mousemove
             const dx = eventClientX - pos.x
@@ -194,22 +194,22 @@ class ClassTest extends Component{
     }
     
     makeAShape(shapeInfo){
-        if(this.state.width == null){
+        if(this.state.width === null){
             alert("Width를 입력하세요");
             document.getElementById("input_set_width").focus();
             return;
         }
-        if(this.state.height == null){
+        if(this.state.height === null){
             alert("Height를 입력하세요");
             document.getElementById("input_set_height").focus();
             return;
         }
-        if(this.state.color == null){
+        if(this.state.color === null){
             alert("Color를 입력하세요");
             document.getElementById("input_set_color").focus();
             return;
         }
-        if(this.state.opacity == null){
+        if(this.state.opacity === null){
             alert("Opacity를 입력하세요");
             document.getElementById("input_set_opacity").focus();
             return;

@@ -536,5 +536,9 @@ h3 {
   #shapeArea {
     height: 20.83333rem;
   }
+  #tooltip {
+    position: static;
+    width: 100%;
+  }
 }
 /*# sourceMappingURL=index.css.map */

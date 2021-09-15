@@ -36,7 +36,6 @@ class ClassTest extends Component{
         this.makeACircle = this.makeACircle.bind(this)
         this.tooltipOn = this.tooltipOn.bind(this)
         this.mouse = this.shapeFocus.bind(this)
-        console.log(this.shiftStart)
 
         this.state = {
             color: "#000000",
@@ -79,22 +78,26 @@ class ClassTest extends Component{
 
     widthChange = (e) => {
         this.setState({
-            width: e.target.value
+            width: e.target.value,
+            triggerForShapeStore: true,
         })
     }
     heightChange = (e) => {
         this.setState({
-            height: e.target.value
+            height: e.target.value,
+            triggerForShapeStore: true,
         })
     }
     colorChange = (e) => {
         this.setState({
-            color: e.target.value
+            color: e.target.value,
+            triggerForShapeStore: true,
         })
     }
     opacityChange = (e) => {
         this.setState({
-            opacity: e.target.value
+            opacity: e.target.value,
+            triggerForShapeStore: true,
         })
     }
 

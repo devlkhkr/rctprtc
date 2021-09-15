@@ -45,7 +45,6 @@ class ClassTest extends Component{
             tooltip: {
                 tooltipOpacity: 0,
             },
-            triggerForShapeStore: null,
         };
     }
     tooltipOn = (e) => {

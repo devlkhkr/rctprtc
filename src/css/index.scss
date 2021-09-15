@@ -494,17 +494,23 @@ h3{
 }
 #trigger_shapeStore{
     appearance: none;
-    display: inline-block;
-    padding: px(10) px(20);
+    display: none;
+    width: 100%;
+    height: px(50);
     position: fixed;
-    bottom: px(20);
-    right: px(20);
-    border-radius: px(6);
-    color: #fff;
+    bottom: 0;
+    right: 0;
     background: $color4;
+    font-family: $notoM;
+    font-size: px(14);
+    color: #fff;
     z-index: 1;
     &::before{
         content: "Open ShapeStore";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
     }
     &:checked{
         background: $color1;
@@ -522,7 +528,7 @@ h3{
         font-size: 4vw;
     }
     #root{
-        >div, .wrapper_contents, .wrapper_shapeMaker{
+        >div, .wrapper_contents{
             height: 100%;
         }
     }
@@ -539,7 +545,10 @@ h3{
         background: #fff;
         z-index: 1;
     }
-    #shapeSheet,#shapeArea{
+    .wrapper_shapeMaker{
+        height: calc(100% - (50rem / 19.20));
+    }
+    #shapeSheet, #shapeArea{
         display: inline-block;
         width: 100%;
         height: 100%;
@@ -547,5 +556,8 @@ h3{
     }
     #tooltip{
         display: none;
+    }
+    #trigger_shapeStore{
+        display: inline-block;
     }
 }

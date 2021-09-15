@@ -35,7 +35,8 @@ class ClassTest extends Component{
         this.makeATriangle = this.makeATriangle.bind(this)
         this.makeACircle = this.makeACircle.bind(this)
         this.tooltipOn = this.tooltipOn.bind(this)
-        this.shapeFocus = this.shapeFocus.bind(this)
+        this.mouse = this.shapeFocus.bind(this)
+        console.log(this.shiftStart)
 
         this.state = {
             color: "#000000",
@@ -50,8 +51,8 @@ class ClassTest extends Component{
         this.setState({
             tooltip: {
                 tooltipOpacity: 1,
-                left: e.clientX + 30,
-                top: e.clientY + 30,
+                left: e.clientX + 10,
+                top: e.clientY + 10,
                 shapeType: e.target.getAttribute("type"),
                 shapeWidth: e.target.getAttribute("width"),
                 shapeHeight: e.target.getAttribute("height"),
@@ -109,10 +110,10 @@ class ClassTest extends Component{
     
     shapeFocus = (e) => {
         e.stopPropagation();
-        // var focusedObj = e.target.parentNode.parentNode.getElementsByClassName("focus")
-        // if(focusedObj.length > 0){
-        //     focusedObj.classList.remove("focus")
-        // }
+        var focusedObj = e.target.parentNode.parentNode.getElementsByClassName("focus")
+        if(focusedObj.length > 0){
+            focusedObj[0].classList.remove("focus")
+        }
         e.target.classList.add("focus")
         this.setState({
             width: e.target.getAttribute("width"),
@@ -178,13 +179,14 @@ class ClassTest extends Component{
         
         const mouseUpHandler = function() {
             //mouseup
-            
             e.target.removeEventListener("mousedown", mouseDownHandler)
             e.target.removeEventListener("touchstart", mouseDownHandler)
             document.removeEventListener("mousemove", mouseMoveHandler)
             document.removeEventListener("touchmove", mouseMoveHandler)
             document.removeEventListener("mouseup", mouseUpHandler)
             document.removeEventListener("touchend", mouseUpHandler)
+
+            e.target.classList.remove("focus")
         }
         
         e.target.addEventListener("mousedown", mouseDownHandler)
@@ -259,10 +261,10 @@ class ClassTest extends Component{
                 </div>
                 <div className="shapeStore">
                     <div className="shapeSet">
-                        <label>Width : </label><input type="number" id="input_set_width" placeholder="width" onChange={this.widthChange} value={this.state.width}></input>
+                        <label>Width : </label><input type="number" id="input_set_width" placeholder="width(px)" onChange={this.widthChange} value={this.state.width}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Height : </label><input type="number" id="input_set_height" placeholder="height" onChange={this.heightChange} value={this.state.height}></input>
+                        <label>Height : </label><input type="number" id="input_set_height" placeholder="height(px)" onChange={this.heightChange} value={this.state.height}></input>
                     </div>
                     <div className="shapeSet">
                         <label>Color : </label><span>{this.state.color}</span><input type="color" id="input_set_color" onChange={this.colorChange} value={this.state.color}></input>

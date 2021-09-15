@@ -44,7 +44,8 @@ class ClassTest extends Component{
             shapes: [],
             tooltip: {
                 tooltipOpacity: 0,
-            }
+            },
+            triggerForShapeStore: null,
         };
     }
     tooltipOn = (e) => {
@@ -194,22 +195,22 @@ class ClassTest extends Component{
     }
     
     makeAShape(shapeInfo){
-        if(this.state.width === null){
+        if(this.state.width === null || this.state.width === undefined || this.state.width === ""){
             alert("Width를 입력하세요");
             document.getElementById("input_set_width").focus();
             return;
         }
-        if(this.state.height === null){
+        if(this.state.width === null || this.state.width === undefined || this.state.width === ""){
             alert("Height를 입력하세요");
             document.getElementById("input_set_height").focus();
             return;
         }
-        if(this.state.color === null){
+        if(this.state.width === null || this.state.width === undefined || this.state.width === ""){
             alert("Color를 입력하세요");
             document.getElementById("input_set_color").focus();
             return;
         }
-        if(this.state.opacity === null){
+        if(this.state.width === null || this.state.width === undefined || this.state.width === ""){
             alert("Opacity를 입력하세요");
             document.getElementById("input_set_opacity").focus();
             return;
@@ -233,7 +234,8 @@ class ClassTest extends Component{
             return styleValue
         }
         this.setState({
-            area: shapeInfo.getShapeArea()
+            area: shapeInfo.getShapeArea(),
+            triggerForShapeStore: false,
         })
         return React.createElement("span", {
             isshape: "true",
@@ -255,10 +257,11 @@ class ClassTest extends Component{
 
     render(){
         return (
-            <div className="userDragNone">
-                <div className="wrapper_tool">
+            <div class="wrapper_shapeMaker">
+                {/* <div className="wrapper_tool">
                     <h3>Class & Object</h3>
-                </div>
+                </div> */}
+                <input type="checkbox" id="trigger_shapeStore" onClick="openShapeStore" checked={this.state.triggerForShapeStore} />
                 <div className="shapeStore">
                     <div className="shapeSet">
                         <label>Width : </label><input type="number" id="input_set_width" placeholder="width(px)" onChange={this.widthChange} value={this.state.width}></input>
@@ -277,13 +280,6 @@ class ClassTest extends Component{
                         <button onClick={this.makeATriangle} className="btn_color_01">Make a triangle</button>
                         <button onClick={this.makeACircle} className="btn_color_01">Make a circle</button>
                     </div>
-                    {/* <ul className="shapeInfo">
-                        <li>가로 : {this.state.width}</li>
-                        <li>세로 : {this.state.height}</li>
-                        <li>색상 : {this.state.color}</li>
-                        <li>넓이 : {this.state.area}</li>
-                        <li>불투명도 : {this.state.opacity}%</li>
-                    </ul> */}
                 </div>
                 <span id="shapeSheet">
                     <div id="shapeArea" onClick={this.shapeFocusOut}>

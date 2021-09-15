@@ -30,12 +30,12 @@ class Menu extends Component {
                         <li><NavLink exact to="/" activeClassName="on" onClick={this.currentChange} title="Home">Home</NavLink></li>
                         <li><NavLink exact to="/about" activeClassName="on" onClick={this.currentChange} title="About">About</NavLink></li>
                         <li><NavLink exact to="/career" activeClassName="on" onClick={this.currentChange} title="Career">Carrer</NavLink></li>
+                        <li><NavLink to="/shapeMaker" activeClassName="on" onClick={this.currentChange} title="Shape Maker">ShapeMaker</NavLink></li>
+                        <li><NavLink to="/users" activeClassName="on" onClick={this.currentChange} title="Users">Users</NavLink></li>
                         {/* <li><NavLink to="/posts" activeClassName="on" onClick={this.currentChange} title="Post">Post</NavLink></li> */}
                         {/* <li><NavLink to="/tools" activeClassName="on" onClick={this.currentChange} title="Tools">Tools</NavLink></li> */}
                         {/* <li><NavLink to="/sql" activeClassName="on" onClick={this.currentChange} title="SQLTest">SQLTest</NavLink></li> */}
                         {/* <li><NavLink to="/bind" activeClassName="on" onClick={this.currentChange} title="BindTest">BindTest</NavLink></li> */}
-                        <li><NavLink to="/shapeMaker" activeClassName="on" onClick={this.currentChange} title="Shape Maker">ShapeMaker</NavLink></li>
-                        <li><NavLink to="/users" activeClassName="on" onClick={this.currentChange} title="Users">Users</NavLink></li>
                     </ul>
                 </div>
             </div>

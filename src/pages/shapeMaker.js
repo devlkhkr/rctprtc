@@ -36,6 +36,7 @@ class ClassTest extends Component{
         this.makeACircle = this.makeACircle.bind(this)
         this.tooltipOn = this.tooltipOn.bind(this)
         this.shapeFocus = this.shapeFocus.bind(this)
+
         this.state = {
             color: "#000000",
             opacity: 100,
@@ -133,16 +134,28 @@ class ClassTest extends Component{
         let eventTarget = e.target
 
         const mouseDownHandler = function(e){
-           //mousedown
-            
+            //mousedown
             var currentLeft = parseInt(window.getComputedStyle(e.target).getPropertyValue("left").replace("px",""));
             var currentTop = parseInt(window.getComputedStyle(e.target).getPropertyValue("top").replace("px",""))
-            pos = {
-                left: currentLeft,
-                top: currentTop,
-                x: e.clientX,
-                y: e.clientY,
+            
+            if(e.type == "touchstart"){
+                pos = {
+                    left: currentLeft,
+                    top: currentTop,
+                    x: e.changedTouches[0].clientX,
+                    y: e.changedTouches[0].clientY,
+                }
             }
+            else if(e.type == "mousedown"){
+                pos = {
+                    left: currentLeft,
+                    top: currentTop,
+                    x: e.clientX,
+                    y: e.clientY,
+                }
+            }
+
+            
             document.addEventListener("mousemove", mouseMoveHandler)
             document.addEventListener("touchmove", mouseMoveHandler)
             document.addEventListener("mouseup", mouseUpHandler)
@@ -150,13 +163,17 @@ class ClassTest extends Component{
         }
         
         const mouseMoveHandler = function(e){
+
+            var eventClientX = e.type == "touchmove" ? e.changedTouches[0].clientX : e.clientX;
+            var eventClientY = e.type == "touchmove" ? e.changedTouches[0].clientY : e.clientY;
+
             //mousemove
-            
-            const dx = e.clientX - pos.x
-            const dy = e.clientY - pos.y
+            const dx = eventClientX - pos.x
+            const dy = eventClientY - pos.y
 
             eventTarget.style.left = (pos.left + dx) + "px";
             eventTarget.style.top = (pos.top + dy) + "px";
+
         }
         
         const mouseUpHandler = function() {

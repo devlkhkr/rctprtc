@@ -37,6 +37,10 @@ html {
   height: 100%;
   font-family: "notoSansRegular";
   color: #444;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 html body {
@@ -530,7 +534,7 @@ h3 {
     height: auto;
   }
   #shapeArea {
-    height: 15.625rem;
+    height: 20.83333rem;
   }
 }
 /*# sourceMappingURL=index.css.map */

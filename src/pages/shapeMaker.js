@@ -281,6 +281,8 @@ class ClassTest extends Component{
                         <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>
                         <button onClick={this.makeATriangle} className="btn_color_01">Make a triangle</button>
                         <button onClick={this.makeACircle} className="btn_color_01">Make a circle</button>
+                        <button onClick={this.deleteSelected} className="btn_color_01">Delete Selected</button>
+                        <button onClick={this.deleteAll} className="btn_color_01">Delete All</button>
                     </div>
                 </div>
                 <span id="shapeSheet">

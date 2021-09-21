@@ -35,7 +35,9 @@ class ClassTest extends Component{
         this.makeATriangle = this.makeATriangle.bind(this)
         this.makeACircle = this.makeACircle.bind(this)
         this.tooltipOn = this.tooltipOn.bind(this)
-        this.mouse = this.shapeFocus.bind(this)
+        this.shapeFocus = this.shapeFocus.bind(this)
+        this.deleteSelected = this.deleteSelected.bind(this)
+        this.deleteAll = this.deleteAll.bind(this)
 
         this.state = {
             width: "",
@@ -43,6 +45,7 @@ class ClassTest extends Component{
             color: "#000000",
             opacity: 100,
             shapes: [],
+            focused: null,
             tooltip: {
                 tooltipOpacity: 0,
             },
@@ -101,9 +104,12 @@ class ClassTest extends Component{
 
     makeARectangle = () => {
         this.state.shapes.push(this.makeAShape(new Rectangle("rectangle", this.state.width, this.state.height, this.state.color)));
+        console.log(this.state.shapes)
     }
     makeATriangle = () => {
         this.state.shapes.push(this.makeAShape(new Triangle("triangle", this.state.width, this.state.height, this.state.color)));
+        console.log(this.state.shapes)
+
     }
     makeACircle = () => {
         this.state.shapes.push(this.makeAShape(new Circle("circle", this.state.width, this.state.height, this.state.color)));
@@ -156,7 +162,6 @@ class ClassTest extends Component{
                     y: e.clientY,
                 }
             }
-
             
             document.addEventListener("mousemove", mouseMoveHandler)
             document.addEventListener("touchmove", mouseMoveHandler)
@@ -194,6 +199,16 @@ class ClassTest extends Component{
         e.target.addEventListener("touchstart", mouseDownHandler)
     }
     
+    deleteSelected = function(){
+
+    }
+
+    deleteAll = function(){
+        this.setState({
+            shapes: [],
+        })
+    }
+
     makeAShape(shapeInfo){
         if(this.state.width === null || this.state.width === undefined || this.state.width === ""){
             alert("Width를 입력하세요");
@@ -236,28 +251,26 @@ class ClassTest extends Component{
         this.setState({
             area: shapeInfo.getShapeArea(),
         })
-        document.getElementById("trigger_shapeStore").checked = false;
-        var shapeObj = {
-            key : `shape${parseInt(this.state.shapes.length) + 1}`,
-            dom : React.createElement("span", {
-                isshape: "true",
-                id: `shape${parseInt(this.state.shapes.length) + 1}`,
-                type: shapeInfo.type,
-                style: shapeStyle(this),
-                width: this.state.width,
-                height: this.state.height,
-                area: shapeInfo.getShapeArea(),
-                color: this.state.color,
-                opacity: this.state.opacity,
-                onMouseMove: this.tooltipOn,
-                onMouseOut: this.tooltipOff,
-                onMouseDown: this.shiftStart,
-                onMouseUp: this.shiftEnd,
-                onClick: this.shapeFocus,
-            }, null)
-        };
 
-        return shapeObj;
+        document.getElementById("trigger_shapeStore").checked = false;
+        
+        return React.createElement("span", {
+            isshape: "true",
+            id: `shape${parseInt(this.state.shapes.length) + 1}`,
+            key : `shape${parseInt(this.state.shapes.length) + 1}`,
+            type: shapeInfo.type,
+            style: shapeStyle(this),
+            width: this.state.width,
+            height: this.state.height,
+            area: shapeInfo.getShapeArea(),
+            color: this.state.color,
+            opacity: this.state.opacity,
+            onMouseMove: this.tooltipOn,
+            onMouseOut: this.tooltipOff,
+            onMouseDown: this.shiftStart,
+            onMouseUp: this.shiftEnd,
+            onClick: this.shapeFocus,
+        }, null);
     }
 
     render(){
@@ -281,16 +294,16 @@ class ClassTest extends Component{
                         <label>Opacity : </label><span>{this.state.opacity}</span><input type="range" id="input_set_opacity" onChange={this.opacityChange} value={this.state.opacity}></input>
                     </div>
                     <div className="shapeCreateBtns">
-                        <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>
-                        <button onClick={this.makeATriangle} className="btn_color_01">Make a triangle</button>
-                        <button onClick={this.makeACircle} className="btn_color_01">Make a circle</button>
+                        <button onClick={this.makeARectangle} className="btn_color_02">Make a rectangle</button>
+                        <button onClick={this.makeATriangle} className="btn_color_02">Make a triangle</button>
+                        <button onClick={this.makeACircle} className="btn_color_02">Make a circle</button>
                         <button onClick={this.deleteSelected} className="btn_color_01">Delete Selected</button>
-                        <button onClick={this.deleteAll} className="btn_color_01">Delete All</button>
+                        <button onClick={this.deleteAll} className="btn_color_03">Delete All</button>
                     </div>
                 </div>
                 <span id="shapeSheet">
                     <div id="shapeArea" onClick={this.shapeFocusOut}>
-                        {this.state.shapes.map(shape => (<span key={shape.key}>{shape.dom}</span>))}
+                        {this.state.shapes.map(shape => (<span key={shape.key}>{shape}</span>))}
                     </div>
                     <span id="tooltip" style={
                             {

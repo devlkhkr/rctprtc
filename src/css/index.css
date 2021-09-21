@@ -90,6 +90,16 @@ button.btn_color_01 {
   color: #f5f5f5;
 }
 
+button.btn_color_02 {
+  background: #7FA6C9;
+  color: #f5f5f5;
+}
+
+button.btn_color_03 {
+  background: #DE5867;
+  color: #f5f5f5;
+}
+
 .btn_fixed_bottom {
   display: inline-block;
   position: fixed;

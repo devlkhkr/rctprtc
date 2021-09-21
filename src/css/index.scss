@@ -459,8 +459,11 @@ h3{
         button{
             width: calc(100% / 3 - (8rem / 19.20));
             font-size: px(12);
-            +button{
-                margin-left: px(12);
+            margin-left: px(12);
+            margin-bottom: px(12);
+            white-space: nowrap;
+            &:nth-child(3n + 1){
+                margin-left: 0;
             }
         }
     }

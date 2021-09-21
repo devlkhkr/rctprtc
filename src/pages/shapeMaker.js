@@ -38,6 +38,8 @@ class ClassTest extends Component{
         this.mouse = this.shapeFocus.bind(this)
 
         this.state = {
+            width: "",
+            height: "",
             color: "#000000",
             opacity: 100,
             shapes: [],
@@ -79,25 +81,21 @@ class ClassTest extends Component{
     widthChange = (e) => {
         this.setState({
             width: e.target.value,
-            triggerForShapeStore: true,
         })
     }
     heightChange = (e) => {
         this.setState({
             height: e.target.value,
-            triggerForShapeStore: true,
         })
     }
     colorChange = (e) => {
         this.setState({
             color: e.target.value,
-            triggerForShapeStore: true,
         })
     }
     opacityChange = (e) => {
         this.setState({
             opacity: e.target.value,
-            triggerForShapeStore: true,
         })
     }
 
@@ -237,7 +235,6 @@ class ClassTest extends Component{
         }
         this.setState({
             area: shapeInfo.getShapeArea(),
-            triggerForShapeStore: false,
         })
         return React.createElement("span", {
             isshape: "true",
@@ -259,11 +256,11 @@ class ClassTest extends Component{
 
     render(){
         return (
-            <div class="wrapper_shapeMaker">
+            <div className="wrapper_shapeMaker">
                 {/* <div className="wrapper_tool">
                     <h3>Class & Object</h3>
                 </div> */}
-                <input type="checkbox" id="trigger_shapeStore" onClick="openShapeStore" checked={this.state.triggerForShapeStore} />
+                <input type="checkbox" id="trigger_shapeStore" />
                 <div className="shapeStore">
                     <div className="shapeSet">
                         <label>Width : </label><input type="number" id="input_set_width" placeholder="width(px)" onChange={this.widthChange} value={this.state.width}></input>
@@ -275,7 +272,7 @@ class ClassTest extends Component{
                         <label>Color : </label><span>{this.state.color}</span><input type="color" id="input_set_color" onChange={this.colorChange} value={this.state.color}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Opacity : </label><span>{this.state.opacity}</span><input type="range" id="input_set_opacity" defaultValue="100" onChange={this.opacityChange} value={this.state.opacity}></input>
+                        <label>Opacity : </label><span>{this.state.opacity}</span><input type="range" id="input_set_opacity" onChange={this.opacityChange} value={this.state.opacity}></input>
                     </div>
                     <div className="shapeCreateBtns">
                         <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>

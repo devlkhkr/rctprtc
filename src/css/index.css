@@ -495,10 +495,13 @@ h3 {
 .shapeStore .shapeCreateBtns button {
   width: calc(100% / 3 - (8rem / 19.20));
   font-size: 0.625rem;
+  margin-left: 0.625rem;
+  margin-bottom: 0.625rem;
+  white-space: nowrap;
 }
 
-.shapeStore .shapeCreateBtns button + button {
-  margin-left: 0.625rem;
+.shapeStore .shapeCreateBtns button:nth-child(3n + 1) {
+  margin-left: 0;
 }
 
 .shapeStore ul.shapeInfo {

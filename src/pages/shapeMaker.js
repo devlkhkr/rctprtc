@@ -231,27 +231,33 @@ class ClassTest extends Component{
                 styleValue.borderRight = shapeInfo.width * 1/2 + "px solid transparent"
                 styleValue.borderLeft = shapeInfo.width * 1/2 + "px solid transparent"
             }
-            return styleValue
+            return styleValue;
         }
         this.setState({
             area: shapeInfo.getShapeArea(),
         })
-        return React.createElement("span", {
-            isshape: "true",
-            id: `shape${parseInt(this.state.shapes.length) + 1}`,
-            type: shapeInfo.type,
-            style: shapeStyle(this),
-            width: this.state.width,
-            height: this.state.height,
-            area: shapeInfo.getShapeArea(),
-            color: this.state.color,
-            opacity: this.state.opacity,
-            onMouseMove: this.tooltipOn,
-            onMouseOut: this.tooltipOff,
-            onMouseDown: this.shiftStart,
-            onMouseUp: this.shiftEnd,
-            onClick: this.shapeFocus,
-        }, null)
+        document.getElementById("trigger_shapeStore").checked = false;
+        var shapeObj = {
+            key : `shape${parseInt(this.state.shapes.length) + 1}`,
+            dom : React.createElement("span", {
+                isshape: "true",
+                id: `shape${parseInt(this.state.shapes.length) + 1}`,
+                type: shapeInfo.type,
+                style: shapeStyle(this),
+                width: this.state.width,
+                height: this.state.height,
+                area: shapeInfo.getShapeArea(),
+                color: this.state.color,
+                opacity: this.state.opacity,
+                onMouseMove: this.tooltipOn,
+                onMouseOut: this.tooltipOff,
+                onMouseDown: this.shiftStart,
+                onMouseUp: this.shiftEnd,
+                onClick: this.shapeFocus,
+            }, null)
+        };
+
+        return shapeObj;
     }
 
     render(){
@@ -284,7 +290,7 @@ class ClassTest extends Component{
                 </div>
                 <span id="shapeSheet">
                     <div id="shapeArea" onClick={this.shapeFocusOut}>
-                        {this.state.shapes.map(shape => (<span>{shape}</span>))}
+                        {this.state.shapes.map(shape => (<span key={shape.key}>{shape.dom}</span>))}
                     </div>
                     <span id="tooltip" style={
                             {

@@ -539,6 +539,12 @@ h3 {
   outline: 0.10417rem dashed rgba(255, 145, 0, 0.5);
 }
 
+#shapeArea #focus {
+  display: inline-block;
+  outline: 0.10417rem dashed rgba(255, 145, 0, 0.5);
+  position: fixed;
+}
+
 #tooltip {
   position: fixed;
   display: inline-block;

@@ -494,6 +494,11 @@ h3{
     .focus{
         outline: px(2) dashed rgba(255, 145, 0, .5);
     }
+    #focus{
+        display: inline-block;
+        outline: px(2) dashed rgba(255, 145, 0, .5);
+        position: fixed;
+    }
 }
 #tooltip{
     position: fixed;

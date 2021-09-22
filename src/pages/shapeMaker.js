@@ -45,7 +45,6 @@ class ClassTest extends Component{
             color: "#000000",
             opacity: 100,
             shapes: [],
-            focused: null,
             tooltip: {
                 tooltipOpacity: 0,
             },
@@ -200,7 +199,7 @@ class ClassTest extends Component{
     }
     
     deleteSelected = function(){
-
+        
     }
 
     deleteAll = function(){
@@ -256,8 +255,8 @@ class ClassTest extends Component{
         
         return React.createElement("span", {
             isshape: "true",
-            id: `shape${parseInt(this.state.shapes.length) + 1}`,
-            key : `shape${parseInt(this.state.shapes.length) + 1}`,
+            id: `shape${parseInt(this.state.shapes.length)}`,
+            key : `shape${parseInt(this.state.shapes.length)}`,
             type: shapeInfo.type,
             style: shapeStyle(this),
             width: this.state.width,
@@ -270,6 +269,7 @@ class ClassTest extends Component{
             onMouseDown: this.shiftStart,
             onMouseUp: this.shiftEnd,
             onClick: this.shapeFocus,
+            active: "false",
         }, null);
     }
 
@@ -297,19 +297,24 @@ class ClassTest extends Component{
                         <button onClick={this.makeARectangle} className="btn_color_02">Make a rectangle</button>
                         <button onClick={this.makeATriangle} className="btn_color_02">Make a triangle</button>
                         <button onClick={this.makeACircle} className="btn_color_02">Make a circle</button>
-                        <button onClick={this.deleteSelected} className="btn_color_01">Delete Selected</button>
                         <button onClick={this.deleteAll} className="btn_color_03">Delete All</button>
                     </div>
                 </div>
                 <span id="shapeSheet">
                     <div id="shapeArea" onClick={this.shapeFocusOut}>
+                        <span id="focus" style={
+                            {
+                                width: null,
+                                height: null,
+                            }
+                        }></span>
                         {this.state.shapes.map(shape => (<span key={shape.key}>{shape}</span>))}
                     </div>
                     <span id="tooltip" style={
                             {
                                 opacity: this.state.tooltip.tooltipOpacity,
                                 left: this.state.tooltip.left,
-                                top: this.state.tooltip.top
+                                top: this.state.tooltip.top,
                             }
                         }>
                             type: {this.state.tooltip.shapeType}<br />

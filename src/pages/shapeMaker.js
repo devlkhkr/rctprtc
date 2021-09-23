@@ -36,6 +36,7 @@ class ClassTest extends Component{
         this.makeACircle = this.makeACircle.bind(this)
         this.tooltipOn = this.tooltipOn.bind(this)
         this.shapeFocus = this.shapeFocus.bind(this)
+        this.deleteAll = this.deleteAll.bind(this)
 
         this.state = {
             width: "",
@@ -106,20 +107,31 @@ class ClassTest extends Component{
     }
 
     makeARectangle = () => {
-        this.state.shapes.push(this.makeAShape(new Rectangle("rectangle", this.state.width, this.state.height, this.state.color)));
+        let drawShape = this.makeAShape(new Rectangle("rectangle", this.state.width, this.state.height, this.state.color));
+        if(drawShape !== undefined){
+            this.state.shapes.push(drawShape);
+        }
     }
     makeATriangle = () => {
-        this.state.shapes.push(this.makeAShape(new Triangle("triangle", this.state.width, this.state.height, this.state.color)));
+        let drawShape = this.makeAShape(new Triangle("triangle", this.state.width, this.state.height, this.state.color));
+        if(drawShape !== undefined){
+            this.state.shapes.push(drawShape);
+        }
     }
     makeACircle = () => {
-        this.state.shapes.push(this.makeAShape(new Circle("circle", this.state.width, this.state.height, this.state.color)));
+        let drawShape = this.makeAShape(new Circle("circle", this.state.width, this.state.height, this.state.color));
+        if(drawShape !== undefined){
+            this.state.shapes.push(drawShape);
+        }
     }
     
     deleteSelected = () => {
 
     }
     deleteAll = () => {
-        
+        this.setState({
+            shapes: [],
+        })
     }
 
     shapeFocus = (e) => {
@@ -252,7 +264,8 @@ class ClassTest extends Component{
         })
         return React.createElement("span", {
             isshape: "true",
-            id: `shape${parseInt(this.state.shapes.length) + 1}`,
+            id: `shape${parseInt(this.state.shapes.length)}`,
+            key: `shape${parseInt(this.state.shapes.length)}`,
             type: shapeInfo.type,
             style: shapeStyle(this),
             width: this.state.width,
@@ -289,16 +302,16 @@ class ClassTest extends Component{
                         <label>Opacity : </label><span>{this.state.opacity}</span><input type="range" id="input_set_opacity" onChange={this.opacityChange} value={this.state.opacity}></input>
                     </div>
                     <div className="shapeCreateBtns">
-                        <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>
-                        <button onClick={this.makeATriangle} className="btn_color_01">Make a triangle</button>
-                        <button onClick={this.makeACircle} className="btn_color_01">Make a circle</button>
-                        <button onClick={this.deleteSelected} className="btn_color_01">Delete Selected</button>
-                        <button onClick={this.deleteAll} className="btn_color_01">Delete All</button>
+                        <button onClick={this.makeARectangle} className="btn_color_02">Make a rectangle</button>
+                        <button onClick={this.makeATriangle} className="btn_color_02">Make a triangle</button>
+                        <button onClick={this.makeACircle} className="btn_color_02">Make a circle</button>
+                        {/* <button onClick={this.deleteSelected} className="btn_color_01">Delete Selected</button> */}
+                        <button onClick={this.deleteAll} className="btn_color_03">Delete All</button>
                     </div>
                 </div>
                 <span id="shapeSheet">
                     <div id="shapeArea" onClick={this.shapeFocusOut}>
-                        {this.state.shapes.map(shape => (<span>{shape}</span>))}
+                        {this.state.shapes.map(shape => (<span key={shape.key}>{shape}</span>))}
                     </div>
                     <span id="tooltip" style={
                             {

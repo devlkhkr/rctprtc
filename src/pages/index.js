@@ -8,3 +8,4 @@ export { default as Sql } from './Sql';
 export { default as Bind } from './Bind';
 export { default as ShapeMaker } from './shapeMaker';
 export { default as Users } from './Users';
+export { default as GuestBook } from './GuestBook';

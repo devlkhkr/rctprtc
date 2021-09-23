@@ -242,7 +242,7 @@ ul.nav{
             font-family: $notoB;
             font-size: px(16);
             &:hover{
-                color: $color6;
+                color: $color7;
             }
             &.on{
                 color: $color7;
@@ -458,9 +458,13 @@ h3{
         margin-top: px(10);
         button{
             width: calc(100% / 3 - (8rem / 19.20));
+            margin-top: px(12);
             font-size: px(12);
             +button{
                 margin-left: px(12);
+            }
+            &:nth-child(3n + 1){
+                margin-left: 0;
             }
         }
     }

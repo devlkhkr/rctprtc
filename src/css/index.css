@@ -254,7 +254,7 @@ ul.nav li a {
 }
 
 ul.nav li a:hover {
-  color: #DE5867;
+  color: #41d6c3;
 }
 
 ul.nav li a.on {
@@ -494,11 +494,16 @@ h3 {
 
 .shapeStore .shapeCreateBtns button {
   width: calc(100% / 3 - (8rem / 19.20));
+  margin-top: 0.625rem;
   font-size: 0.625rem;
 }
 
 .shapeStore .shapeCreateBtns button + button {
   margin-left: 0.625rem;
+}
+
+.shapeStore .shapeCreateBtns button:nth-child(3n + 1) {
+  margin-left: 0;
 }
 
 .shapeStore ul.shapeInfo {

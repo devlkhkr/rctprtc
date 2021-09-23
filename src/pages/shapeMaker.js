@@ -35,17 +35,21 @@ class ClassTest extends Component{
         this.makeATriangle = this.makeATriangle.bind(this)
         this.makeACircle = this.makeACircle.bind(this)
         this.tooltipOn = this.tooltipOn.bind(this)
-        this.mouse = this.shapeFocus.bind(this)
+        this.shapeFocus = this.shapeFocus.bind(this)
 
         this.state = {
+            width: "",
+            height: "",
             color: "#000000",
             opacity: 100,
             shapes: [],
             tooltip: {
                 tooltipOpacity: 0,
             },
+            triggerForShapeStore: false,
         };
     }
+
     tooltipOn = (e) => {
         this.setState({
             tooltip: {
@@ -111,13 +115,20 @@ class ClassTest extends Component{
         this.state.shapes.push(this.makeAShape(new Circle("circle", this.state.width, this.state.height, this.state.color)));
     }
     
+    deleteSelected = () => {
+
+    }
+    deleteAll = () => {
+        
+    }
+
     shapeFocus = (e) => {
         e.stopPropagation();
         var focusedObj = e.target.parentNode.parentNode.getElementsByClassName("focus")
         if(focusedObj.length > 0){
             focusedObj[0].classList.remove("focus")
         }
-        e.target.classList.add("focus")
+        e.target.classList.add("focus");
         this.setState({
             width: e.target.getAttribute("width"),
             height: e.target.getAttribute("height"),
@@ -259,11 +270,11 @@ class ClassTest extends Component{
 
     render(){
         return (
-            <div class="wrapper_shapeMaker">
+            <div className="wrapper_shapeMaker">
                 {/* <div className="wrapper_tool">
                     <h3>Class & Object</h3>
                 </div> */}
-                <input type="checkbox" id="trigger_shapeStore" onClick="openShapeStore" checked={this.state.triggerForShapeStore} />
+                <input type="checkbox" id="trigger_shapeStore" defaultChecked={this.state.triggerForShapeStore} />
                 <div className="shapeStore">
                     <div className="shapeSet">
                         <label>Width : </label><input type="number" id="input_set_width" placeholder="width(px)" onChange={this.widthChange} value={this.state.width}></input>
@@ -275,12 +286,14 @@ class ClassTest extends Component{
                         <label>Color : </label><span>{this.state.color}</span><input type="color" id="input_set_color" onChange={this.colorChange} value={this.state.color}></input>
                     </div>
                     <div className="shapeSet">
-                        <label>Opacity : </label><span>{this.state.opacity}</span><input type="range" id="input_set_opacity" defaultValue="100" onChange={this.opacityChange} value={this.state.opacity}></input>
+                        <label>Opacity : </label><span>{this.state.opacity}</span><input type="range" id="input_set_opacity" onChange={this.opacityChange} value={this.state.opacity}></input>
                     </div>
                     <div className="shapeCreateBtns">
                         <button onClick={this.makeARectangle} className="btn_color_01">Make a rectangle</button>
                         <button onClick={this.makeATriangle} className="btn_color_01">Make a triangle</button>
                         <button onClick={this.makeACircle} className="btn_color_01">Make a circle</button>
+                        <button onClick={this.deleteSelected} className="btn_color_01">Delete Selected</button>
+                        <button onClick={this.deleteAll} className="btn_color_01">Delete All</button>
                     </div>
                 </div>
                 <span id="shapeSheet">

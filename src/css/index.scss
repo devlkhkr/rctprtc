@@ -250,7 +250,7 @@ ul.nav{
             font-family: $notoB;
             font-size: px(16);
             &:hover{
-                color: $color7;
+                color: $color6;
             }
             &.on{
                 color: $color7;
@@ -466,14 +466,10 @@ h3{
         margin-top: px(10);
         button{
             width: calc(100% / 3 - (8rem / 19.20));
-            margin-top: px(12);
             font-size: px(12);
             margin-left: px(12);
             margin-bottom: px(12);
             white-space: nowrap;
-            &:nth-child(3n + 1){
-                margin-left: 0;
-            }
             &:nth-child(3n + 1){
                 margin-left: 0;
             }

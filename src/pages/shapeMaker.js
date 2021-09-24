@@ -13,7 +13,7 @@ class Shape{
     }
 }
 class Rectangle extends Shape{
-        
+    //getShapeArea default : width * height
 }
 class Triangle extends Shape{
     getShapeArea(){

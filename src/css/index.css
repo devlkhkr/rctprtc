@@ -596,6 +596,7 @@ h3 {
 
 .guestBook {
   margin-top: 1.04167rem;
+  overflow: hidden;
 }
 
 .guestBook span {

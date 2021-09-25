@@ -11,6 +11,15 @@ class GuestBook extends Component{
         return (
             <div>
                 <div>GuestBook</div>
+                <div className="guestBook">
+                    <span>test1</span>
+                    <span>test2</span>
+                    <span>test3</span>
+                    <span>test4</span>
+                    <span className="mine">test5</span>
+                    <span>test6</span>
+                    <span>test7</span>
+                </div>
             </div>
         );
     }

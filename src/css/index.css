@@ -594,6 +594,25 @@ h3 {
   content: "Close ShapeStore";
 }
 
+.guestBook {
+  margin-top: 1.04167rem;
+}
+
+.guestBook span {
+  display: inline-block;
+  width: 60%;
+  padding: 1.04167rem;
+  border-radius: 0.52083rem;
+  background: #bbb;
+  margin-bottom: 0.52083rem;
+}
+
+.guestBook span.mine {
+  background: #444;
+  color: #fff;
+  float: right;
+}
+
 @media all and (max-width: 700px) {
   html {
     font-size: 4vw;

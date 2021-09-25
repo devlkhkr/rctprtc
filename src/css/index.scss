@@ -541,6 +541,23 @@ h3{
     }
 }
 
+.guestBook{
+    margin-top: px(20);
+    span{
+        display: inline-block;
+        width: 60%;
+        padding: px(20);
+        border-radius: px(10);
+        background: #bbb;
+        margin-bottom: px(10);
+        &.mine{
+            background: #444;
+            color: #fff;
+            float: right;
+        }
+    }
+}
+
 @media all and(max-width: 700px){
     html{
         font-size: 4vw;

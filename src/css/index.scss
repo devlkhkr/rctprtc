@@ -544,17 +544,25 @@ h3{
 .guestBook{
     margin-top: px(20);
     overflow: hidden;
-    span{
+    >div{
         display: inline-block;
-        width: 60%;
-        padding: px(20);
-        border-radius: px(10);
-        background: #bbb;
-        margin-bottom: px(10);
+        width: 100%;
+        span{
+            display: inline-block;
+            width: 80%;
+            max-width: px(500);
+            padding: px(20);
+            border-radius: px(10);
+            background: #bbb;
+            margin-bottom: px(10);
+        }        
         &.mine{
-            background: #444;
-            color: #fff;
-            float: right;
+            text-align: right;
+            span{
+                text-align: left;
+                background: #444;
+                color: #fff;
+            }
         }
     }
 }

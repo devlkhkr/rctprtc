@@ -12,13 +12,14 @@ class GuestBook extends Component{
             <div>
                 <div>GuestBook</div>
                 <div className="guestBook">
-                    <span>test1</span>
-                    <span>test2</span>
-                    <span>test3</span>
-                    <span>test4</span>
-                    <span className="mine">test5</span>
-                    <span>test6</span>
-                    <span>test7</span>
+                    <div><span>test1</span></div>
+                    <div><span>test2</span></div>
+                    <div><span>test3</span></div>
+                    <div><span>test4</span></div>
+                    <div className="mine"><span>test5</span></div>
+                    <div><span>test6</span></div>
+                    <div><span>test7</span></div>
+                    <div><span>test8</span></div>
                 </div>
             </div>
         );

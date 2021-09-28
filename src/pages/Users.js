@@ -11,6 +11,7 @@ class Users extends Component{
         return (
             <div>
                 <div>Users</div>
+                <div>Mysql data test</div>
             </div>
         );
     }

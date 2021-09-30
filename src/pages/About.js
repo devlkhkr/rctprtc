@@ -9,6 +9,7 @@ const About = ({location, match}) => {
         <div>
             <div>About {match.params.name}</div>
             <div>Web for Kany practice ES6 & React</div>
+            <div>Test</div>
             {detail && 'detail: blahblah'}
             <a href="http://3.34.51.151">chattings</a>
         </div>

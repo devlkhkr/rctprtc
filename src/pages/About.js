@@ -14,6 +14,7 @@ const About = ({location, match}) => {
             <a href="http://3.34.51.151">chattings ver 0.1 beta test</a>
             <a href="http://3.34.51.151">chattings ver 0.2 beta test (2021-10-03) update</a>
             <a href="http://3.34.51.151">chattings ver 0.25 beta test (2021-10-03) update</a>
+            <a href="http://3.34.51.151">chattings ver 0.3 beta test (2021-10-08) update</a>
 
         </div>
     );
